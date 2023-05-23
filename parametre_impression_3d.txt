@@ -1,0 +1,36 @@
+Ce fichier permet à l'utilisateur d'entrer les paramètres qui vont modifier le code G.
+
+------------------------------------------------------------------
+
+0) Identification des phases
+Entrez la valeur en % à laquelle fini la phase. 
+Ajouter des lignes au besoin en fonction du nombre de phases voulue.
+La dernière phase doit être 100 %.
+
+Phase 000 (%) : 0
+Phase 001 (%) : 20
+Phase 002 (%) : 50
+Phase 003 (%) : 100
+
+------------------------------------------------------------------
+
+1) Modification de la température d'impression de manière variable
+Entrez la température en deg C à laquelle fini la phase.
+
+Phase 000 (deg C) : 180
+Phase 001 (deg C) : 190
+Phase 002 (deg C) : 210
+Phase 003 (deg C) : 230
+
+------------------------------------------------------------------
+
+2) Modification de la vitesse d'impression de manière variable.
+Entrez la modification de vitesse en % à laquelle fini la phase.
+Une valeur de 100% indique que la vitesse n'est pas modifiée.
+
+Phase 000 (%) : 90
+Phase 001 (%) : 100
+Phase 002 (%) : 110
+Phase 003 (%) : 130
+
+------------------------------------------------------------------
