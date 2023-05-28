@@ -34,3 +34,27 @@ Phase 002 (%) : 110
 Phase 003 (%) : 130
 
 ------------------------------------------------------------------
+
+3) Sur ou sous extruder de manière variable.
+Entrez la quantité en % de matériau estrudé (volume) linéaire 
+à laquelle fini la phase.
+Cette quantité est modifiée en fonction de la vitesse (point 2)
+et de la température (point 1) d'impression.
+
+Phase 000 (%) : 80
+Phase 001 (%) : 90
+Phase 002 (%) : 110
+Phase 003 (%) : 120
+
+------------------------------------------------------------------
+
+4) Décalage de la position de la pièce en X et Y sur le lit.
+Entrez la longeur en mm pour l'axe X et Y afin de décaler la 
+pièce de cette distance.
+
+Phase 000 (mm) : X=2 et Y=3
+Phase 001 (mm) : X=-2 et Y=-3
+Phase 002 (mm) : X=-3 et Y=-4
+Phase 003 (mm) : X=6 et Y=5
+
+------------------------------------------------------------------
