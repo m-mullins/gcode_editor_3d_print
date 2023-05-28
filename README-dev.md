@@ -8,9 +8,9 @@ de cet éditeur de G-code, référez-vous au fichier [README](README.md).
 
 ## Dependencies
 
-Ce programme a été développé avec Python 3.9 et n'a pas été testé avec d'autres versions. Ci-dessous la liste des
+Ce programme a été développé avec Python 3.9.5 et n'a pas été testé avec d'autres versions. Ci-dessous la liste des
 modules utilisés et leur version.
 
 Module:
 
-numpy 1.16.3
+numpy 1.24.3

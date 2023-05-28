@@ -8,7 +8,7 @@ editor, please refer to the [README-en](README-en.md) file.
 
 ## Dependencies
 
-This is being developed in python 3.9 and has not been tested with other iterations. Following is the list of the 
+This is being developed in python 3.9.5 and has not been tested with other iterations. Following is the list of the 
 modules used and their versions.
 
 Package:
