@@ -541,7 +541,7 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     tag_modified_line(modified_line_parts)
 
                     # Apply the position modification
-                    modified_line = shift_position(modified_line_parts, parameter_array, phase_num, phase_pct)
+                    modified_line = shift_position(modified_line_parts, parameter_array, phase_num)
 
             # Write the modified lines to the output file
             output_file.write(modified_line)

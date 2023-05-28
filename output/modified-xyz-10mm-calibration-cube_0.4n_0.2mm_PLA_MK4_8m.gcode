@@ -631,8 +631,8 @@ M83 ; extruder relative mode
 
 M140 S60 ; set bed temp
 
-M104 s180.0 ; set extruder temp for bed leveling
-M109 R180.0 ; wait for temp
+M104 S170 ; set extruder temp for bed leveling  ;Modified
+M109 R170 ; wait for temp  ;Modified
 
 
 M84 E ; turn off E motor
@@ -640,12 +640,12 @@ M84 E ; turn off E motor
 G28 ; home all without mesh bed level
 
 ; probe to clean the nozzle
-G1 X152 Y96 Z5 F4320.0  ;Modified
+G1 X152 Y96 Z5 F4800  ;Modified
 
 M302 S160 ; lower cold extrusion limit to 160C
 
 
-G1 E-2 F2160.0 ; retraction  ;Modified
+G1 E-2 F2400 ; retraction  ;Modified
 
 
 M84 E ; turn off E motor
@@ -665,10 +665,10 @@ M107
 ;
 M84 E ; turn off E motor
 G29 ; mesh bed leveling
-M104 s180.0 ; set extruder temp
+M104 S215 ; set extruder temp  ;Modified
 G0 X120 Y95.5 Z30 F4800
 
-M109 S215 ; wait for extruder temp
+M109 S215 ; wait for extruder temp  ;Modified
 G1 Z0.2 F648.0  ;Modified
 G92 E0
 
@@ -678,16 +678,16 @@ M569 S0 E ; set spreadcycle mode for extruder
 ; Extrude purge line
 ;
 
-G1 E2 F2160.0 ; deretraction  ;Modified
+G1 E2 F2400 ; deretraction  ;Modified
 
 
 ; move right
-G1 X152 E4.8 F900.0  ;Modified
+G1 X152 E4.8 F1000  ;Modified
 ; move down
-G1 Y94 E0.225 F900.0  ;Modified
+G1 Y94 E0.225 F1000  ;Modified
 ; move left
 M73 P1 R7
-G1 X120 E9.6 F720.0  ;Modified
+G1 X120 E9.6 F800  ;Modified
 
 G92 E0
 M221 S100 ; set flow to 100%
@@ -706,16 +706,16 @@ G92 E0.0
 ;0.2
 
 
-G1 E-.8 F1911.0  ;Modified
+G1 E-.8 F2100  ;Modified
 G1 Z.2 F655.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;0.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z.4  ;Modified
 M73 P2 R7
-G1 X129.093 Y109.093 F10920.0  ;Modified
+G1 X129.093 Y109.093 F12000  ;Modified
 G1 Z.2 F655.2  ;Modified
-G1 E.8 F1365.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P600
 ;TYPE:Perimeter
 ;WIDTH:0.499999
@@ -725,7 +725,7 @@ G1 X120.907 Y100.907 E.31111  ;Modified
 G1 X129.093 Y100.907 E.31111  ;Modified
 G1 X129.093 Y109.033 E.30883  ;Modified
 M204 P1000
-G1 X129.55 Y109.55 F10920.0  ;Modified
+G1 X129.55 Y109.55 F12000  ;Modified
 M204 P600
 ;TYPE:External perimeter
 G1 F1092.0  ;Modified
@@ -734,18 +734,18 @@ G1 X120.45 Y100.45 E.34586  ;Modified
 G1 X129.55 Y100.45 E.34586  ;Modified
 G1 X129.55 Y109.49 E.34358  ;Modified
 M204 P1000
-G1 X129.164 Y109.446 F10920.0  ;Modified
-G1 E-.64 F1911.0  ;Modified
+G1 X129.164 Y109.446 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 M73 P3 R7
 G1 F8736.0  ;Modified
 G1 X128.819 Y109.495 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1911.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z.4 F655.2  ;Modified
-G1 X127.955 Y101.113 F10920.0  ;Modified
+G1 X127.955 Y101.113 F12000  ;Modified
 G1 Z.2 F655.2  ;Modified
-G1 E.8 F1365.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P600
 ;TYPE:Solid infill
 ;WIDTH:0.503729
@@ -858,20 +858,20 @@ G92 E0.0
 ;0.4
 
 
-G1 E-.64 F1932.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F8832.0  ;Modified
 G1 X121.63 Y108.473 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1932.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z.4 F662.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;0.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z.6  ;Modified
-G1 X129.368 Y109.368 F11040.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z.4 F662.4  ;Modified
-G1 E.8 F1380.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -880,7 +880,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11040.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1380.0  ;Modified
@@ -890,7 +890,7 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11040.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 G1 X129.185 Y108.355  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -1013,20 +1013,20 @@ G92 E0.0
 ;0.6
 
 
-G1 E-.64 F1953.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F8928.0  ;Modified
 G1 X121.332 Y101.127 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1953.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z.6 F669.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;0.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z.8  ;Modified
-G1 X129.368 Y109.368 F11160.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z.6 F669.6  ;Modified
-G1 E.8 F1395.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1035,7 +1035,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11160.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1395.0  ;Modified
@@ -1045,17 +1045,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11160.0  ;Modified
-G1 E-.64 F1953.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F8928.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1953.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z.8 F669.6  ;Modified
-G1 X128.355 Y100.815 F11160.0  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z.6 F669.6  ;Modified
-G1 E.8 F1395.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -1177,20 +1177,20 @@ G92 E0.0
 ;0.8
 
 
-G1 E-.64 F1974.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9024.0  ;Modified
 G1 X121.127 Y108.668 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1974.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z.8 F676.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;0.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z1  ;Modified
-G1 X129.368 Y109.368 F11280.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z.8 F676.8  ;Modified
-G1 E.8 F1410.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1199,7 +1199,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11280.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1410.0  ;Modified
@@ -1209,7 +1209,7 @@ G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
 M73 P9 R7
-G1 X129.389 Y109.671 F11280.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 G1 X129.185 Y108.355  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -1332,20 +1332,20 @@ G92 E0.0
 ;1
 
 
-G1 E-.64 F1995.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9120.0  ;Modified
 G1 X121.332 Y101.127 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1995.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1 F684.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;1
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z1.2  ;Modified
-G1 X129.368 Y109.368 F11400.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z1 F684.0  ;Modified
-G1 E.8 F1425.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1355,7 +1355,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11400.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F855.0  ;Modified
@@ -1365,17 +1365,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11400.0  ;Modified
-G1 E-.64 F1995.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9120.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1995.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.2 F684.0  ;Modified
-G1 X129.002 Y106.674 F11400.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z1 F684.0  ;Modified
-G1 E.8 F1425.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -1388,16 +1388,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F1995.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9120.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F1995.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.2 F684.0  ;Modified
-G1 X126.674 Y100.998 F11400.0  ;Modified
+G1 X126.674 Y100.998 F12000  ;Modified
 G1 Z1 F684.0  ;Modified
-G1 E.8 F1425.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F855.0  ;Modified
 M73 P12 R6
@@ -1470,20 +1470,20 @@ G92 E0.0
 ;1.2
 
 
-G1 E-.64 F2016.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9216.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2016.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.2 F691.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;1.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z1.4  ;Modified
-G1 X129.368 Y109.368 F11520.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z1.2 F691.2  ;Modified
-G1 E.8 F1440.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1493,7 +1493,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11520.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F864.0  ;Modified
@@ -1502,18 +1502,18 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11520.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 M73 P13 R6
-G1 E-.64 F2016.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9216.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2016.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.4 F691.2  ;Modified
-G1 X129.002 Y106.674 F11520.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z1.2 F691.2  ;Modified
-G1 E.8 F1440.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -1526,16 +1526,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2016.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9216.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2016.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.4 F691.2  ;Modified
-G1 X126.674 Y100.998 F11520.0  ;Modified
+G1 X126.674 Y100.998 F12000  ;Modified
 G1 Z1.2 F691.2  ;Modified
-G1 E.8 F1440.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F864.0  ;Modified
 G1 X128.674 Y100.998 E.0677  ;Modified
@@ -1607,21 +1607,21 @@ G92 E0.0
 ;1.4
 
 
-G1 E-.64 F2037.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9312.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2037.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.4 F698.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;1.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z1.6  ;Modified
 M73 P14 R6
-G1 X129.368 Y109.368 F11640.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z1.4 F698.4  ;Modified
-G1 E.8 F1455.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1630,7 +1630,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11640.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1455.0  ;Modified
@@ -1639,17 +1639,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11640.0  ;Modified
-G1 E-.64 F2037.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9312.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2037.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.6 F698.4  ;Modified
-G1 X125.328 Y107.218 F11640.0  ;Modified
+G1 X125.328 Y107.218 F12000  ;Modified
 G1 Z1.4 F698.4  ;Modified
-G1 E.8 F1455.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -1663,16 +1663,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2037.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9312.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2037.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.6 F698.4  ;Modified
-G1 X129.185 Y101.669 F11640.0  ;Modified
+G1 X129.185 Y101.669 F12000  ;Modified
 G1 Z1.4 F698.4  ;Modified
-G1 E.8 F1455.0  ;Modified
+G1 E.8 F1500  ;Modified
 ;TYPE:Bridge infill
 ;WIDTH:0.464492
 G1 X128.514 Y100.998 E.03324  ;Modified
@@ -1705,16 +1705,16 @@ G1 X125.645 Y105.88 E.0209  ;Modified
 G1 X128.688 Y108.923 E.15088  ;Modified
 G1 X128.092 Y108.923 E.0209  ;Modified
 G1 X125.462 Y106.293 E.13041  ;Modified
-G1 E-.64 F2037.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9312.0  ;Modified
 G1 X125.979 Y106.81 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2037.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.6 F698.4  ;Modified
-G1 X124.9 Y104.538 F11640.0  ;Modified
+G1 X124.9 Y104.538 F12000  ;Modified
 G1 Z1.4 F698.4  ;Modified
-G1 E.8 F1455.0  ;Modified
+G1 E.8 F1500  ;Modified
 G1 X121.36 Y100.998 E.17548  ;Modified
 G1 X120.998 Y100.998 E.01267  ;Modified
 G1 X120.998 Y101.233 E.00823  ;Modified
@@ -1788,20 +1788,20 @@ G92 E0.0
 ;1.6
 
 
-G1 E-.64 F2058.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9408.0  ;Modified
 G1 X121.402 Y104.021 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2058.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.6 F705.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;1.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z1.8  ;Modified
-G1 X129.368 Y109.368 F11760.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z1.6 F705.6  ;Modified
-G1 E.8 F1470.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -1811,7 +1811,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F11760.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1470.0  ;Modified
@@ -1820,17 +1820,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11760.0  ;Modified
-G1 E-.64 F2058.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9408.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2058.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.8 F705.6  ;Modified
-G1 X128.26 Y109.106 F11760.0  ;Modified
+G1 X128.26 Y109.106 F12000  ;Modified
 G1 Z1.6 F705.6  ;Modified
-G1 E.8 F1470.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.463897
@@ -1893,16 +1893,16 @@ G1 X122.08 Y100.998 E.05353  ;Modified
 G1 X121.484 Y100.998 E.02084  ;Modified
 G1 X120.815 Y101.668 E.03312  ;Modified
 M204 P1000
-G1 E-.64 F2058.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9408.0  ;Modified
 G1 X121.332 Y101.15 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2058.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.8 F705.6  ;Modified
-G1 X125.328 Y107.218 F11760.0  ;Modified
+G1 X125.328 Y107.218 F12000  ;Modified
 G1 Z1.6 F705.6  ;Modified
-G1 E.8 F1470.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -1977,20 +1977,20 @@ G92 E0.0
 ;1.8
 
 
-G1 E-.64 F2079.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9504.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2079.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z1.8 F712.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;1.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z2  ;Modified
-G1 X129.368 Y109.368 F11880.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z1.8 F712.8  ;Modified
-G1 E.8 F1485.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -2000,7 +2000,7 @@ G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
 M73 P18 R6
-G1 X129.775 Y109.775 F11880.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1485.0  ;Modified
@@ -2009,17 +2009,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F11880.0  ;Modified
-G1 E-.64 F2079.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9504.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2079.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2 F712.8  ;Modified
-G1 X125.328 Y107.218 F11880.0  ;Modified
+G1 X125.328 Y107.218 F12000  ;Modified
 G1 Z1.8 F712.8  ;Modified
-G1 E.8 F1485.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -2033,16 +2033,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2079.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9504.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2079.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2 F712.8  ;Modified
-G1 X129.185 Y101.669 F11880.0  ;Modified
+G1 X129.185 Y101.669 F12000  ;Modified
 G1 Z1.8 F712.8  ;Modified
-G1 E.8 F1485.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.464492
@@ -2078,16 +2078,16 @@ G1 X128.688 Y108.923 E.15088  ;Modified
 G1 X128.092 Y108.923 E.0209  ;Modified
 G1 X125.462 Y106.293 E.13041  ;Modified
 M204 P1000
-G1 E-.64 F2079.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9504.0  ;Modified
 G1 X125.979 Y106.81 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2079.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2 F712.8  ;Modified
-G1 X124.9 Y104.538 F11880.0  ;Modified
+G1 X124.9 Y104.538 F12000  ;Modified
 G1 Z1.8 F712.8  ;Modified
-G1 E.8 F1485.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F1590.93  ;Modified
 G1 X121.36 Y100.998 E.17548  ;Modified
@@ -2164,20 +2164,20 @@ G92 E0.0
 ;2
 
 
-G1 E-.64 F2100.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9600.0  ;Modified
 G1 X121.402 Y104.021 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2100.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2 F720.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z2.2  ;Modified
-G1 X129.368 Y109.368 F12000.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z2 F720.0  ;Modified
-G1 E.8 F1500.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -2186,7 +2186,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F12000.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 M73 P20 R6
@@ -2196,17 +2196,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F12000.0  ;Modified
-G1 E-.64 F2100.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9600.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2100.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.2 F720.0  ;Modified
-G1 X128.26 Y109.106 F12000.0  ;Modified
+G1 X128.26 Y109.106 F12000  ;Modified
 G1 Z2 F720.0  ;Modified
-G1 E.8 F1500.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.463897
@@ -2269,16 +2269,16 @@ G1 X122.08 Y100.998 E.05353  ;Modified
 G1 X121.484 Y100.998 E.02084  ;Modified
 G1 X120.815 Y101.668 E.03312  ;Modified
 M204 P1000
-G1 E-.64 F2100.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9600.0  ;Modified
 G1 X121.332 Y101.15 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2100.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.2 F720.0  ;Modified
-G1 X125.328 Y107.218 F12000.0  ;Modified
+G1 X125.328 Y107.218 F12000  ;Modified
 G1 Z2 F720.0  ;Modified
-G1 E.8 F1500.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -2353,20 +2353,20 @@ G92 E0.0
 ;2.2
 
 
-G1 E-.64 F2114.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9664.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2114.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.2 F724.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;2.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z2.4  ;Modified
-G1 X129.368 Y109.368 F12080.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z2.2 F724.8  ;Modified
-G1 E.8 F1510.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -2375,7 +2375,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F12080.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1510.0  ;Modified
@@ -2385,17 +2385,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F12080.0  ;Modified
-G1 E-.64 F2114.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9664.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2114.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.4 F724.8  ;Modified
-G1 X125.328 Y107.218 F12080.0  ;Modified
+G1 X125.328 Y107.218 F12000  ;Modified
 G1 Z2.2 F724.8  ;Modified
-G1 E.8 F1510.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -2409,16 +2409,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2114.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9664.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2114.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.4 F724.8  ;Modified
-G1 X129.185 Y101.669 F12080.0  ;Modified
+G1 X129.185 Y101.669 F12000  ;Modified
 G1 Z2.2 F724.8  ;Modified
-G1 E.8 F1510.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.464492
@@ -2455,16 +2455,16 @@ G1 X128.688 Y108.923 E.15088  ;Modified
 G1 X128.092 Y108.923 E.0209  ;Modified
 G1 X125.462 Y106.293 E.13041  ;Modified
 M204 P1000
-G1 E-.64 F2114.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9664.0  ;Modified
 G1 X125.979 Y106.81 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2114.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.4 F724.8  ;Modified
-G1 X124.9 Y104.538 F12080.0  ;Modified
+G1 X124.9 Y104.538 F12000  ;Modified
 G1 Z2.2 F724.8  ;Modified
-G1 E.8 F1510.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F1617.7133333333334  ;Modified
 G1 X121.36 Y100.998 E.17548  ;Modified
@@ -2541,20 +2541,20 @@ G92 E0.0
 ;2.4
 
 
-G1 E-.64 F2128.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9728.0  ;Modified
 G1 X121.402 Y104.021 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2128.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.4 F729.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;2.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z2.6  ;Modified
-G1 X129.368 Y104.561 F12160.0  ;Modified
+G1 X129.368 Y104.561 F12000  ;Modified
 G1 Z2.4 F729.6  ;Modified
-G1 E.8 F1520.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -2564,7 +2564,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y104.501 E.13096  ;Modified
 M204 P1000
-G1 X129.775 Y104.561 F12160.0  ;Modified
+G1 X129.775 Y104.561 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1520.0  ;Modified
@@ -2575,159 +2575,159 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y104.501 E.14474  ;Modified
 M204 P1000
-G1 X129.528 Y104.876 F12160.0  ;Modified
-G1 E-.64 F2128.0  ;Modified
+G1 X129.528 Y104.876 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9728.0  ;Modified
 G1 X129.775 Y105.232 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2128.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.6 F729.6  ;Modified
-G1 X128.358 Y108.551 F12160.0  ;Modified
+G1 X128.358 Y108.551 F12000  ;Modified
 G1 Z2.4 F729.6  ;Modified
-G1 E.8 F1520.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P800
 ;TYPE:Top solid infill
 ;WIDTH:0.451685
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y107.724 E.03973  ;Modified
 M204 P1000
-G1 X129.185 Y107.146 F12160.0  ;Modified
+G1 X129.185 Y107.146 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X127.78 Y108.551 E.06751  ;Modified
 M204 P1000
-G1 X127.482 Y108.27 F12160.0  ;Modified
+G1 X127.482 Y108.27 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y106.568 E.08183  ;Modified
 M204 P1000
-G1 X129.185 Y105.99 F12160.0  ;Modified
+G1 X129.185 Y105.99 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X127.193 Y107.981 E.09572  ;Modified
 M204 P1000
-G1 X126.904 Y107.692 F12160.0  ;Modified
+G1 X126.904 Y107.692 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y105.412 E.10961  ;Modified
 M204 P1000
-G1 X129.185 Y104.834 F12160.0  ;Modified
+G1 X129.185 Y104.834 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X126.615 Y107.403 E.12351  ;Modified
 M204 P1000
-G1 X126.326 Y107.114 F12160.0  ;Modified
+G1 X126.326 Y107.114 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y104.256 E.1374  ;Modified
 M204 P1000
-G1 X129.185 Y103.678 F12160.0  ;Modified
+G1 X129.185 Y103.678 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X126.037 Y106.825 E.15129  ;Modified
 M204 P1000
-G1 X126.017 Y106.267 F12160.0  ;Modified
+G1 X126.017 Y106.267 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y103.1 E.15225  ;Modified
 M204 P1000
-G1 X129.185 Y102.521 F12160.0  ;Modified
+G1 X129.185 Y102.521 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X126.017 Y105.689 E.15225  ;Modified
 M204 P1000
-G1 X126.017 Y105.111 F12160.0  ;Modified
+G1 X126.017 Y105.111 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.185 Y101.943 E.15225  ;Modified
 M204 P1000
-G1 X129.185 Y101.365 F12160.0  ;Modified
+G1 X129.185 Y101.365 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X126.017 Y104.533 E.15225  ;Modified
 M204 P1000
-G1 X125.989 Y103.983 F12160.0  ;Modified
+G1 X125.989 Y103.983 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X129.157 Y100.815 E.15225  ;Modified
 M204 P1000
-G1 X128.579 Y100.815 F12160.0  ;Modified
+G1 X128.579 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X125.411 Y103.983 E.15225  ;Modified
 M204 P1000
-G1 X124.833 Y103.983 F12160.0  ;Modified
+G1 X124.833 Y103.983 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X128.001 Y100.815 E.15225  ;Modified
 M204 P1000
-G1 X127.422 Y100.815 F12160.0  ;Modified
+G1 X127.422 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X124.255 Y103.983 E.15225  ;Modified
 M204 P1000
 M73 P25 R5
-G1 X123.677 Y103.983 F12160.0  ;Modified
+G1 X123.677 Y103.983 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X126.844 Y100.815 E.15225  ;Modified
 M204 P1000
-G1 X126.266 Y100.815 F12160.0  ;Modified
+G1 X126.266 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X123.099 Y103.983 E.15225  ;Modified
 M204 P1000
-G1 X122.521 Y103.983 F12160.0  ;Modified
+G1 X122.521 Y103.983 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X125.688 Y100.815 E.15225  ;Modified
 M204 P1000
-G1 X125.11 Y100.815 F12160.0  ;Modified
+G1 X125.11 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X121.943 Y103.983 E.15225  ;Modified
 M204 P1000
-G1 X121.622 Y103.725 F12160.0  ;Modified
+G1 X121.622 Y103.725 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X124.532 Y100.815 E.13987  ;Modified
 M204 P1000
-G1 X123.954 Y100.815 F12160.0  ;Modified
+G1 X123.954 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X121.333 Y103.436 E.12597  ;Modified
 M204 P1000
-G1 X121.044 Y103.147 F12160.0  ;Modified
+G1 X121.044 Y103.147 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X123.376 Y100.815 E.11208  ;Modified
 M204 P1000
-G1 X122.798 Y100.815 F12160.0  ;Modified
+G1 X122.798 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X120.815 Y102.798 E.0953  ;Modified
 M204 P1000
-G1 X120.815 Y102.22 F12160.0  ;Modified
+G1 X120.815 Y102.22 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X122.22 Y100.815 E.06751  ;Modified
 M204 P1000
-G1 X121.642 Y100.815 F12160.0  ;Modified
+G1 X121.642 Y100.815 F12000  ;Modified
 M204 P800
 G1 F1604.1066666666666  ;Modified
 G1 X120.815 Y101.642 E.03972  ;Modified
 M204 P1000
-G1 E-.64 F2128.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9728.0  ;Modified
 G1 X121.332 Y101.124 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2128.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.6 F729.6  ;Modified
-G1 X126.427 Y107.531 F12160.0  ;Modified
+G1 X126.427 Y107.531 F12000  ;Modified
 G1 Z2.4 F729.6  ;Modified
-G1 E.8 F1520.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -2806,7 +2806,7 @@ G92 E0.0
 ;2.6
 
 
-G1 E-.64 F2142.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9792.0  ;Modified
 G1 X129.002 Y109.002 E-.02569  ;Modified
@@ -2814,15 +2814,15 @@ G1 X128.775 Y108.775 E-.06672  ;Modified
 G1 X128.901 Y108.775 E-.02637  ;Modified
 G1 X128.788 Y108.888 E-.03323  ;Modified
 ;WIPE_END
-G1 E-.008 F2142.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.6 F734.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;2.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z2.8  ;Modified
-G1 X128.87 Y103.834 F12240.0  ;Modified
+G1 X128.87 Y103.834 F12000  ;Modified
 G1 Z2.6 F734.4  ;Modified
-G1 E.8 F1530.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -2865,7 +2865,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.927 Y103.816 E.00171  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12240.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F989.4  ;Modified
@@ -2898,35 +2898,35 @@ G1 X129.775 Y100.225 E.08993  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.82 Y104.156 F12240.0  ;Modified
-G1 E-.64 F2142.0  ;Modified
+G1 X128.82 Y104.156 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9792.0  ;Modified
 G1 X128.826 Y104.273 E-.04574  ;Modified
 G1 X128.772 Y104.408 E-.0302  ;Modified
 G1 X128.772 Y104.774 E-.07606  ;Modified
 ;WIPE_END
-G1 E-.008 F2142.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.8 F734.4  ;Modified
-G1 X125.01 Y100.642 F12240.0  ;Modified
+G1 X125.01 Y100.642 F12000  ;Modified
 G1 Z2.6 F734.4  ;Modified
-G1 E.8 F1530.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.474912
 G1 F989.4  ;Modified
 G1 X125.01 Y101.079 E.01568  ;Modified
 M204 P1000
-G1 E-.64 F2142.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9792.0  ;Modified
 G1 X125.01 Y100.642 E-.09073  ;Modified
 ;WIPE_END
-G1 E-.06927 F2142.0  ;Modified
+G1 E-.06927 F2100  ;Modified
 G1 Z2.8 F734.4  ;Modified
-G1 X129.002 Y106.674 F12240.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z2.6 F734.4  ;Modified
-G1 E.8 F1530.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3026,20 +3026,20 @@ G92 E0.0
 ;2.8
 
 
-G1 E-.64 F2156.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9856.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2156.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z2.8 F739.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;2.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z3  ;Modified
-G1 X128.868 Y103.836 F12320.0  ;Modified
+G1 X128.868 Y103.836 F12000  ;Modified
 G1 Z2.8 F739.2  ;Modified
-G1 E.8 F1540.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -3078,7 +3078,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.925 Y103.817 E.00181  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12320.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F951.72  ;Modified
@@ -3122,19 +3122,19 @@ G1 X129.775 Y100.225 E.09313  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.814 Y104.156 F12320.0  ;Modified
-G1 E-.64 F2156.0  ;Modified
+G1 X128.814 Y104.156 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9856.0  ;Modified
 G1 X128.822 Y104.277 E-.04673  ;Modified
 G1 X128.772 Y104.411 E-.02961  ;Modified
 G1 X128.772 Y104.775 E-.07566  ;Modified
 ;WIPE_END
-G1 E-.008 F2156.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3 F739.2  ;Modified
-G1 X129.002 Y106.674 F12320.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z2.8 F739.2  ;Modified
-G1 E.8 F1540.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3147,17 +3147,17 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2156.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9856.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
 M73 P29 R5
-G1 E-.008 F2156.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3 F739.2  ;Modified
-G1 X123.326 Y109.002 F12320.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z2.8 F739.2  ;Modified
-G1 E.8 F1540.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F951.72  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -3232,22 +3232,22 @@ G92 E0.0
 ;3
 
 
-G1 E-.64 F2170.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9920.0  ;Modified
 G1 X127.395 Y101.817 E-.03753  ;Modified
 G1 X127.721 Y101.414 E-.10782  ;Modified
 G1 X127.727 Y101.382 E-.00664  ;Modified
 ;WIPE_END
-G1 E-.008 F2170.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3 F744.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;3
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z3.2  ;Modified
-G1 X128.868 Y103.838 F12400.0  ;Modified
+G1 X128.868 Y103.838 F12000  ;Modified
 G1 Z3 F744.0  ;Modified
-G1 E.8 F1550.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -3285,7 +3285,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.924 Y103.818 E.00184  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12400.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F954.8  ;Modified
@@ -3322,19 +3322,19 @@ G1 X129.775 Y100.225 E.09634  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.85 Y104.159 F12400.0  ;Modified
-G1 E-.64 F2170.0  ;Modified
+G1 X128.85 Y104.159 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9920.0  ;Modified
 G1 X128.849 Y104.251 E-.03994  ;Modified
 G1 X128.772 Y104.411 E-.03668  ;Modified
 G1 X128.772 Y104.773 E-.07537  ;Modified
 ;WIPE_END
-G1 E-.008 F2170.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.2 F744.0  ;Modified
-G1 X129.002 Y106.674 F12400.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z3 F744.0  ;Modified
-G1 E.8 F1550.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3347,16 +3347,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2170.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9920.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2170.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.2 F744.0  ;Modified
-G1 X123.326 Y109.002 F12400.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z3 F744.0  ;Modified
-G1 E.8 F1550.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F954.8  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -3433,22 +3433,22 @@ G92 E0.0
 ;3.2
 
 
-G1 E-.64 F2184.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9984.0  ;Modified
 G1 X127.323 Y101.8 E-.02361  ;Modified
 G1 X127.619 Y101.431 E-.09837  ;Modified
 G1 X127.649 Y101.289 E-.03002  ;Modified
 ;WIPE_END
-G1 E-.008 F2184.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.2 F748.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;3.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z3.4  ;Modified
-G1 X128.866 Y103.84 F12480.0  ;Modified
+G1 X128.866 Y103.84 F12000  ;Modified
 G1 Z3.2 F748.8  ;Modified
-G1 E.8 F1560.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -3485,7 +3485,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.922 Y103.819 E.00193  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12480.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F960.96  ;Modified
@@ -3522,19 +3522,19 @@ G1 X129.775 Y100.225 E.09954  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y104.158 F12480.0  ;Modified
-G1 E-.64 F2184.0  ;Modified
+G1 X128.846 Y104.158 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9984.0  ;Modified
 G1 X128.846 Y104.254 E-.04067  ;Modified
 G1 X128.772 Y104.411 E-.03595  ;Modified
 G1 X128.772 Y104.773 E-.07537  ;Modified
 ;WIPE_END
-G1 E-.008 F2184.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.4 F748.8  ;Modified
-G1 X129.002 Y106.674 F12480.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z3.2 F748.8  ;Modified
-G1 E.8 F1560.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3547,16 +3547,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2184.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F9984.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2184.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.4 F748.8  ;Modified
-G1 X123.326 Y109.002 F12480.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z3.2 F748.8  ;Modified
-G1 E.8 F1560.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F960.96  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -3632,22 +3632,22 @@ G92 E0.0
 ;3.4
 
 
-G1 E-.64 F2198.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10048.0  ;Modified
 G1 X127.249 Y101.783 E-.00948  ;Modified
 G1 X127.517 Y101.447 E-.08924  ;Modified
 G1 X127.573 Y101.197 E-.05328  ;Modified
 ;WIPE_END
-G1 E-.008 F2198.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.4 F753.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;3.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z3.6  ;Modified
-G1 X128.882 Y103.826 F12560.0  ;Modified
+G1 X128.882 Y103.826 F12000  ;Modified
 G1 Z3.4 F753.6  ;Modified
-G1 E.8 F1570.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -3686,7 +3686,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.939 Y103.81 E.00128  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12560.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F980.7266666666667  ;Modified
@@ -3730,19 +3730,19 @@ G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
 M73 P34 R5
-G1 X128.842 Y104.158 F12560.0  ;Modified
-G1 E-.64 F2198.0  ;Modified
+G1 X128.842 Y104.158 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10048.0  ;Modified
 G1 X128.843 Y104.256 E-.04138  ;Modified
 G1 X128.772 Y104.411 E-.03524  ;Modified
 G1 X128.772 Y104.773 E-.07538  ;Modified
 ;WIPE_END
-G1 E-.008 F2198.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.6 F753.6  ;Modified
-G1 X125.015 Y100.308 F12560.0  ;Modified
+G1 X125.015 Y100.308 F12000  ;Modified
 G1 Z3.4 F753.6  ;Modified
-G1 E.8 F1570.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.615842
 G1 F980.7266666666667  ;Modified
@@ -3750,17 +3750,17 @@ G1 X125.015 Y101.024 E.03414  ;Modified
 ;WIDTH:0.61803
 G1 X125.015 Y101.05 E.0012  ;Modified
 M204 P1000
-G1 E-.64 F2198.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10048.0  ;Modified
 G1 X125.015 Y101.024 E-.00521  ;Modified
 G1 X125.015 Y100.318 E-.14679  ;Modified
 ;WIPE_END
-G1 E-.008 F2198.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.6 F753.6  ;Modified
-G1 X127.189 Y101.748 F12560.0  ;Modified
+G1 X127.189 Y101.748 F12000  ;Modified
 G1 Z3.4 F753.6  ;Modified
-G1 E.8 F1570.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3776,16 +3776,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2198.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10048.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2198.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.6 F753.6  ;Modified
-G1 X120.998 Y103.326 F12560.0  ;Modified
+G1 X120.998 Y103.326 F12000  ;Modified
 G1 Z3.4 F753.6  ;Modified
-G1 E.8 F1570.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F980.7266666666667  ;Modified
 G1 X120.998 Y101.326 E.0677  ;Modified
@@ -3857,20 +3857,20 @@ G92 E0.0
 ;3.6
 
 
-G1 E-.64 F2212.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10112.0  ;Modified
 G1 X129.002 Y107.406 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2212.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.6 F758.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;3.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z3.8  ;Modified
-G1 X128.88 Y103.827 F12640.0  ;Modified
+G1 X128.88 Y103.827 F12000  ;Modified
 G1 Z3.6 F758.4  ;Modified
-G1 E.8 F1580.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -3908,7 +3908,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.938 Y103.811 E.00132  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12640.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F988.0266666666665  ;Modified
@@ -3940,20 +3940,20 @@ G1 X129.775 Y100.225 E.10594  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.839 Y104.158 F12640.0  ;Modified
-G1 E-.64 F2212.0  ;Modified
+G1 X128.839 Y104.158 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10112.0  ;Modified
 G1 X128.84 Y104.259 E-.04207  ;Modified
 G1 X128.772 Y104.411 E-.03454  ;Modified
 G1 X128.772 Y104.773 E-.07539  ;Modified
 ;WIPE_END
-G1 E-.008 F2212.0  ;Modified
+G1 E-.008 F2100  ;Modified
 M73 P35 R4
 G1 Z3.8 F758.4  ;Modified
-G1 X125.016 Y100.224 F12640.0  ;Modified
+G1 X125.016 Y100.224 F12000  ;Modified
 G1 Z3.6 F758.4  ;Modified
-G1 E.8 F1580.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.448722
 G1 F988.0266666666665  ;Modified
@@ -3962,17 +3962,17 @@ G1 X125.016 Y101.024 E.027  ;Modified
 M73 P36 R4
 G1 X125.016 Y101.042 E.0006  ;Modified
 M204 P1000
-G1 E-.64 F2212.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10112.0  ;Modified
 G1 X125.016 Y101.024 E-.00369  ;Modified
 G1 X125.016 Y100.311 E-.14831  ;Modified
 ;WIPE_END
-G1 E-.008 F2212.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.8 F758.4  ;Modified
-G1 X127.156 Y101.676 F12640.0  ;Modified
+G1 X127.156 Y101.676 F12000  ;Modified
 G1 Z3.6 F758.4  ;Modified
-G1 E.8 F1580.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -3988,16 +3988,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2212.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10112.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2212.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.8 F758.4  ;Modified
-G1 X120.998 Y103.326 F12640.0  ;Modified
+G1 X120.998 Y103.326 F12000  ;Modified
 G1 Z3.6 F758.4  ;Modified
-G1 E.8 F1580.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F988.0266666666665  ;Modified
 G1 X120.998 Y101.326 E.0677  ;Modified
@@ -4069,20 +4069,20 @@ G92 E0.0
 ;3.8
 
 
-G1 E-.64 F2226.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10176.0  ;Modified
 G1 X129.002 Y107.406 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2226.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z3.8 F763.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;3.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z4  ;Modified
-G1 X128.879 Y103.828 F12720.0  ;Modified
+G1 X128.879 Y103.828 F12000  ;Modified
 G1 Z3.8 F763.2  ;Modified
-G1 E.8 F1590.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -4116,7 +4116,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.937 Y103.811 E.00137  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12720.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F994.28  ;Modified
@@ -4150,34 +4150,34 @@ G1 X129.775 Y100.225 E.10914  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.835 Y104.157 F12720.0  ;Modified
-G1 E-.64 F2226.0  ;Modified
+G1 X128.835 Y104.157 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10176.0  ;Modified
 G1 X128.837 Y104.261 E-.04273  ;Modified
 G1 X128.772 Y104.411 E-.03385  ;Modified
 G1 X128.772 Y104.773 E-.07541  ;Modified
 ;WIPE_END
-G1 E-.008 F2226.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4 F763.2  ;Modified
-G1 X125.017 Y100.141 F12720.0  ;Modified
+G1 X125.017 Y100.141 F12000  ;Modified
 G1 Z3.8 F763.2  ;Modified
-G1 E.8 F1590.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.38292
 G1 F994.28  ;Modified
 G1 X125.017 Y101.035 E.02528  ;Modified
 M204 P1000
-G1 E-.64 F2226.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10176.0  ;Modified
 G1 X125.017 Y100.303 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2226.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4 F763.2  ;Modified
-G1 X127.122 Y101.604 F12720.0  ;Modified
+G1 X127.122 Y101.604 F12000  ;Modified
 G1 Z3.8 F763.2  ;Modified
-G1 E.8 F1590.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -4194,16 +4194,16 @@ G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
 M73 P38 R4
-G1 E-.64 F2226.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10176.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2226.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4 F763.2  ;Modified
-G1 X120.998 Y103.326 F12720.0  ;Modified
+G1 X120.998 Y103.326 F12000  ;Modified
 G1 Z3.8 F763.2  ;Modified
-G1 E.8 F1590.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F994.28  ;Modified
 G1 X120.998 Y101.326 E.0677  ;Modified
@@ -4275,20 +4275,20 @@ G92 E0.0
 ;4
 
 
-G1 E-.64 F2240.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10240.0  ;Modified
 G1 X129.002 Y107.406 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2240.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4 F768.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z4.2  ;Modified
-G1 X128.878 Y103.829 F12800.0  ;Modified
+G1 X128.878 Y103.829 F12000  ;Modified
 G1 Z4 F768.0  ;Modified
-G1 E.8 F1600.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -4321,7 +4321,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.936 Y103.812 E.00141  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12800.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 M73 P39 R4
@@ -4347,19 +4347,19 @@ G1 X129.775 Y100.225 E.11234  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.832 Y104.157 F12800.0  ;Modified
-G1 E-.64 F2240.0  ;Modified
+G1 X128.832 Y104.157 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10240.0  ;Modified
 G1 X128.835 Y104.264 E-.04338  ;Modified
 G1 X128.772 Y104.411 E-.03319  ;Modified
 G1 X128.772 Y104.774 E-.07544  ;Modified
 ;WIPE_END
-G1 E-.008 F2240.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.2 F768.0  ;Modified
-G1 X129.002 Y106.674 F12800.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z4 F768.0  ;Modified
-G1 E.8 F1600.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -4372,16 +4372,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2240.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10240.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2240.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.2 F768.0  ;Modified
-G1 X123.326 Y109.002 F12800.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z4 F768.0  ;Modified
-G1 E.8 F1600.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F968.5333333333334  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -4457,7 +4457,7 @@ G92 E0.0
 ;4.2
 
 
-G1 E-.64 F2254.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10304.0  ;Modified
 G1 X127.108 Y101.503 E-.00731  ;Modified
@@ -4465,15 +4465,15 @@ G1 X127.23 Y101.046 E-.09824  ;Modified
 G1 X127.23 Y100.998 E-.00983  ;Modified
 G1 X127.406 Y100.998 E-.03662  ;Modified
 ;WIPE_END
-G1 E-.008 F2254.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.2 F772.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;4.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z4.4  ;Modified
-G1 X128.877 Y103.829 F12880.0  ;Modified
+G1 X128.877 Y103.829 F12000  ;Modified
 G1 Z4.2 F772.8  ;Modified
-G1 E.8 F1610.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -4506,7 +4506,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.934 Y103.812 E.00145  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12880.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F974.5866666666666  ;Modified
@@ -4532,19 +4532,19 @@ G1 X129.775 Y100.225 E.11554  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.829 Y104.157 F12880.0  ;Modified
-G1 E-.64 F2254.0  ;Modified
+G1 X128.829 Y104.157 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10304.0  ;Modified
 G1 X128.832 Y104.266 E-.044  ;Modified
 G1 X128.772 Y104.411 E-.03254  ;Modified
 G1 X128.772 Y104.774 E-.07547  ;Modified
 ;WIPE_END
-G1 E-.008 F2254.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.4 F772.8  ;Modified
-G1 X129.002 Y106.674 F12880.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z4.2 F772.8  ;Modified
-G1 E.8 F1610.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -4557,16 +4557,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2254.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10304.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2254.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.4 F772.8  ;Modified
-G1 X123.326 Y109.002 F12880.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z4.2 F772.8  ;Modified
-G1 E.8 F1610.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F974.5866666666666  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -4641,22 +4641,22 @@ G92 E0.0
 ;4.4
 
 
-G1 E-.64 F2268.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10368.0  ;Modified
 G1 X127.135 Y101.046 E-.08575  ;Modified
 G1 X127.135 Y100.998 E-.00998  ;Modified
 G1 X127.406 Y100.998 E-.05627  ;Modified
 ;WIPE_END
-G1 E-.008 F2268.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.4 F777.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;4.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z4.6  ;Modified
-G1 X128.876 Y103.83 F12960.0  ;Modified
+G1 X128.876 Y103.83 F12000  ;Modified
 G1 Z4.4 F777.6  ;Modified
-G1 E.8 F1620.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -4688,7 +4688,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.933 Y103.813 E.0015  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F12960.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F980.64  ;Modified
@@ -4714,19 +4714,19 @@ G1 X129.775 Y100.225 E.11874  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.826 Y104.157 F12960.0  ;Modified
-G1 E-.64 F2268.0  ;Modified
+G1 X128.826 Y104.157 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10368.0  ;Modified
 G1 X128.83 Y104.268 E-.0446  ;Modified
 G1 X128.772 Y104.411 E-.0319  ;Modified
 G1 X128.772 Y104.774 E-.0755  ;Modified
 ;WIPE_END
-G1 E-.008 F2268.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.6 F777.6  ;Modified
-G1 X129.002 Y106.674 F12960.0  ;Modified
+G1 X129.002 Y106.674 F12000  ;Modified
 G1 Z4.4 F777.6  ;Modified
-G1 E.8 F1620.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -4739,16 +4739,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2268.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10368.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2268.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.6 F777.6  ;Modified
-G1 X123.326 Y109.002 F12960.0  ;Modified
+G1 X123.326 Y109.002 F12000  ;Modified
 G1 Z4.4 F777.6  ;Modified
-G1 E.8 F1620.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F980.64  ;Modified
 G1 X121.326 Y109.002 E.0677  ;Modified
@@ -4822,22 +4822,22 @@ G92 E0.0
 ;4.6
 
 
-G1 E-.64 F2282.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10432.0  ;Modified
 G1 X127.041 Y101.047 E-.06596  ;Modified
 G1 X127.041 Y100.998 E-.01012  ;Modified
 G1 X127.406 Y100.998 E-.07592  ;Modified
 ;WIPE_END
-G1 E-.008 F2282.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.6 F782.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;4.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z4.8  ;Modified
-G1 X128.875 Y103.831 F13040.0  ;Modified
+G1 X128.875 Y103.831 F12000  ;Modified
 G1 Z4.6 F782.4  ;Modified
-G1 E.8 F1630.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -4870,7 +4870,7 @@ G1 X129.368 Y103.8 E.10723  ;Modified
 G1 X128.976 Y103.8 E.01328  ;Modified
 G1 X128.932 Y103.813 E.00154  ;Modified
 M204 P1000
-G1 X128.976 Y104.207 F13040.0  ;Modified
+G1 X128.976 Y104.207 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F997.56  ;Modified
@@ -4895,7 +4895,7 @@ G1 X129.775 Y100.225 E.12194  ;Modified
 G1 X129.775 Y104.207 E.13479  ;Modified
 G1 X129.036 Y104.207 E.02503  ;Modified
 M204 P1000
-G1 X128.823 Y104.157 F13040.0  ;Modified
+G1 X128.823 Y104.157 F12000  ;Modified
 G1 X129.185 Y103.468  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -4907,18 +4907,18 @@ G1 X128.587 Y103.386 E.01686  ;Modified
 G1 X128.485 Y103.459 E.00508  ;Modified
 G1 X128.722 Y103.696 E.01358  ;Modified
 M204 P1000
-G1 E-.64 F2282.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10432.0  ;Modified
 G1 X128.485 Y103.459 E-.06948  ;Modified
 G1 X128.587 Y103.386 E-.02601  ;Modified
 G1 X128.847 Y103.308 E-.05651  ;Modified
 ;WIPE_END
-G1 E-.008 F2282.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.8 F782.4  ;Modified
-G1 X126.884 Y101.261 F13040.0  ;Modified
+G1 X126.884 Y101.261 F12000  ;Modified
 G1 Z4.6 F782.4  ;Modified
-G1 E.8 F1630.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -4933,16 +4933,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2282.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10432.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2282.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.8 F782.4  ;Modified
-G1 X128.532 Y107.028 F13040.0  ;Modified
+G1 X128.532 Y107.028 F12000  ;Modified
 G1 Z4.6 F782.4  ;Modified
-G1 E.8 F1630.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F997.56  ;Modified
 G1 X129.002 Y107.163 E.01654  ;Modified
@@ -5015,20 +5015,20 @@ G92 E0.0
 ;4.8
 
 
-G1 E-.64 F2296.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10496.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2296.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z4.8 F787.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;4.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z5  ;Modified
-G1 X128.874 Y103.779 F13120.0  ;Modified
+G1 X128.874 Y103.779 F12000  ;Modified
 G1 Z4.8 F787.2  ;Modified
-G1 E.8 F1640.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -5060,7 +5060,7 @@ G1 X129.368 Y103.748 E.10546  ;Modified
 G1 X128.976 Y103.748 E.01328  ;Modified
 G1 X128.931 Y103.761 E.00157  ;Modified
 M204 P1000
-G1 X128.976 Y104.155 F13120.0  ;Modified
+G1 X128.976 Y104.155 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1039.76  ;Modified
@@ -5085,7 +5085,7 @@ G1 X129.775 Y100.225 E.12514  ;Modified
 G1 X129.775 Y104.155 E.13302  ;Modified
 G1 X129.036 Y104.155 E.02503  ;Modified
 M204 P1000
-G1 X128.818 Y104.104 F13120.0  ;Modified
+G1 X128.818 Y104.104 F12000  ;Modified
 G1 X128.861 Y103.013  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -5093,16 +5093,16 @@ M204 P1500
 G1 F1039.76  ;Modified
 G1 X128.261 Y103.613 E.03046  ;Modified
 M204 P1000
-G1 E-.64 F2296.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10496.0  ;Modified
 G1 X128.778 Y103.096 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2296.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5 F787.2  ;Modified
-G1 X126.815 Y101.17 F13120.0  ;Modified
+G1 X126.815 Y101.17 F12000  ;Modified
 G1 Z4.8 F787.2  ;Modified
-G1 E.8 F1640.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -5118,16 +5118,16 @@ G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
 M73 P47 R4
-G1 E-.64 F2296.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10496.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2296.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5 F787.2  ;Modified
-G1 X128.44 Y107.095 F13120.0  ;Modified
+G1 X128.44 Y107.095 F12000  ;Modified
 G1 Z4.8 F787.2  ;Modified
-G1 E.8 F1640.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1039.76  ;Modified
 G1 X128.475 Y107.114 E.00134  ;Modified
@@ -5140,16 +5140,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2296.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10496.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2296.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5 F787.2  ;Modified
-G1 X129.185 Y106.634 F13120.0  ;Modified
+G1 X129.185 Y106.634 F12000  ;Modified
 G1 Z4.8 F787.2  ;Modified
-G1 E.8 F1640.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -5220,22 +5220,22 @@ G92 E0.0
 ;5
 
 
-G1 E-.64 F2310.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10560.0  ;Modified
 G1 X128.502 Y106.626 E-.07571  ;Modified
 G1 X128.602 Y106.719 E-.02845  ;Modified
 G1 X128.822 Y106.785 E-.04785  ;Modified
 ;WIPE_END
-G1 E-.008 F2310.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5 F792.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;5
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z5.2  ;Modified
-G1 X128.866 Y103.689 F13200.0  ;Modified
+G1 X128.866 Y103.689 F12000  ;Modified
 G1 Z5 F792.0  ;Modified
-G1 E.8 F1650.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -5267,7 +5267,7 @@ M73 P48 R4
 G1 X128.976 Y103.649 E.01328  ;Modified
 G1 X128.922 Y103.668 E.00192  ;Modified
 M204 P1000
-G1 X128.976 Y104.056 F13200.0  ;Modified
+G1 X128.976 Y104.056 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1085.7  ;Modified
@@ -5292,7 +5292,7 @@ G1 X129.775 Y100.225 E.12834  ;Modified
 G1 X129.775 Y104.056 E.12968  ;Modified
 G1 X129.036 Y104.056 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y104.007 F13200.0  ;Modified
+G1 X128.846 Y104.007 F12000  ;Modified
 G1 X129.185 Y103.27  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -5303,33 +5303,33 @@ G1 X128.609 Y103.175 E.01587  ;Modified
 G1 X128.492 Y103.267 E.00606  ;Modified
 G1 X128.758 Y103.534 E.01532  ;Modified
 M204 P1000
-G1 E-.64 F2310.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10560.0  ;Modified
 G1 X128.492 Y103.267 E-.07839  ;Modified
 G1 X128.609 Y103.175 E-.03101  ;Modified
 G1 X128.806 Y103.12 E-.04261  ;Modified
 ;WIPE_END
-G1 E-.008 F2310.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.2 F792.0  ;Modified
-G1 X128.284 Y106.509 F13200.0  ;Modified
+G1 X128.284 Y106.509 F12000  ;Modified
 G1 Z5 F792.0  ;Modified
-G1 E.8 F1650.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.473582
 G1 F1085.7  ;Modified
 G1 X128.864 Y107.09 E.02938  ;Modified
 M204 P1000
-G1 E-.64 F2310.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10560.0  ;Modified
 G1 X128.347 Y106.572 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2310.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.2 F792.0  ;Modified
-G1 X126.742 Y100.815 F13200.0  ;Modified
+G1 X126.742 Y100.815 F12000  ;Modified
 G1 Z5 F792.0  ;Modified
-G1 E.8 F1650.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.531415
 G1 F1085.7  ;Modified
@@ -5339,7 +5339,7 @@ G1 X126.837 Y101.391 E.01584  ;Modified
 G1 X126.744 Y101.508 E.00608  ;Modified
 G1 X126.499 Y101.263 E.01407  ;Modified
 M204 P1000
-G1 X127.151 Y101.652 F13200.0  ;Modified
+G1 X127.151 Y101.652 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -5361,16 +5361,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2310.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10560.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2310.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.2 F792.0  ;Modified
-G1 X122.903 Y101.137 F13200.0  ;Modified
+G1 X122.903 Y101.137 F12000  ;Modified
 G1 Z5 F792.0  ;Modified
-G1 E.8 F1650.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.471522
@@ -5438,20 +5438,20 @@ G92 E0.0
 ;5.2
 
 
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X122.956 Y101.19 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2326.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.2 F797.76  ;Modified
 ;AFTER_LAYER_CHANGE
 ;5.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z5.4  ;Modified
-G1 X128.866 Y103.59 F13296.0  ;Modified
+G1 X128.866 Y103.59 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -5482,7 +5482,7 @@ G1 X129.368 Y103.55 E.09878  ;Modified
 G1 X128.976 Y103.55 E.01328  ;Modified
 G1 X128.922 Y103.57 E.00193  ;Modified
 M204 P1000
-G1 X128.976 Y103.957 F13296.0  ;Modified
+G1 X128.976 Y103.957 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1110.216  ;Modified
@@ -5508,7 +5508,7 @@ G1 X129.775 Y100.225 E.12577  ;Modified
 G1 X129.775 Y103.957 E.12634  ;Modified
 G1 X129.036 Y103.957 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.908 F13296.0  ;Modified
+G1 X128.846 Y103.908 F12000  ;Modified
 G1 X128.864 Y102.813  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -5516,16 +5516,16 @@ M204 P1500
 G1 F1110.216  ;Modified
 G1 X128.264 Y103.413 E.03042  ;Modified
 M204 P1000
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X128.782 Y102.895 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2326.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.4 F797.76  ;Modified
-G1 X127.192 Y101.729 F13296.0  ;Modified
+G1 X127.192 Y101.729 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -5541,16 +5541,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2326.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.4 F797.76  ;Modified
-G1 X128.286 Y107.175 F13296.0  ;Modified
+G1 X128.286 Y107.175 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1110.216  ;Modified
 G1 X128.392 Y107.268 E.00476  ;Modified
@@ -5565,47 +5565,47 @@ G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
 M73 P51 R3
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2326.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.4 F797.76  ;Modified
-G1 X123.352 Y100.818 F13296.0  ;Modified
+G1 X123.352 Y100.818 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
 G1 F1110.216  ;Modified
 G1 X122.851 Y101.319 E.02878  ;Modified
 M204 P1000
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X123.352 Y100.818 E-.14724  ;Modified
 ;WIPE_END
-G1 E-.01276 F2326.8  ;Modified
+G1 E-.01276 F2100  ;Modified
 G1 Z5.4 F797.76  ;Modified
-G1 X127.196 Y101.138 F13296.0  ;Modified
+G1 X127.196 Y101.138 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.47176
 G1 F1110.216  ;Modified
 G1 X126.609 Y101.725 E.02963  ;Modified
 M204 P1000
-G1 E-.64 F2326.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10636.8  ;Modified
 G1 X127.126 Y101.208 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2326.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.4 F797.76  ;Modified
-G1 X129.185 Y106.831 F13296.0  ;Modified
+G1 X129.185 Y106.831 F12000  ;Modified
 G1 Z5.2 F797.76  ;Modified
-G1 E.8 F1662.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.531415
 G1 F1110.216  ;Modified
@@ -5675,22 +5675,22 @@ G92 E0.0
 ;5.4
 
 
-G1 E-.64 F2343.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10713.6  ;Modified
 G1 X128.503 Y106.823 E-.07483  ;Modified
 G1 X128.625 Y106.93 E-.03379  ;Modified
 G1 X128.826 Y106.986 E-.04338  ;Modified
 ;WIPE_END
-G1 E-.008 F2343.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.4 F803.52  ;Modified
 ;AFTER_LAYER_CHANGE
 ;5.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z5.6  ;Modified
-G1 X128.866 Y103.492 F13392.0  ;Modified
+G1 X128.866 Y103.492 F12000  ;Modified
 G1 Z5.4 F803.52  ;Modified
-G1 E.8 F1674.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -5722,7 +5722,7 @@ G1 X129.368 Y103.452 E.09544  ;Modified
 G1 X128.976 Y103.452 E.01328  ;Modified
 G1 X128.922 Y103.471 E.00192  ;Modified
 M204 P1000
-G1 X128.976 Y103.859 F13392.0  ;Modified
+G1 X128.976 Y103.859 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1090.3319999999999  ;Modified
@@ -5748,7 +5748,7 @@ G1 X129.775 Y100.225 E.12248  ;Modified
 G1 X129.775 Y103.859 E.123  ;Modified
 G1 X129.036 Y103.859 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.809 F13392.0  ;Modified
+G1 X128.846 Y103.809 F12000  ;Modified
 G1 X129.185 Y103.071  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -5759,18 +5759,18 @@ G1 X128.633 Y102.964 E.01478  ;Modified
 G1 X128.492 Y103.07 E.00717  ;Modified
 G1 X128.756 Y103.334 E.01518  ;Modified
 M204 P1000
-G1 E-.64 F2343.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10713.6  ;Modified
 G1 X128.492 Y103.07 E-.07767  ;Modified
 G1 X128.633 Y102.964 E-.03669  ;Modified
 G1 X128.809 Y102.918 E-.03763  ;Modified
 ;WIPE_END
-G1 E-.008 F2343.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.6 F803.52  ;Modified
-G1 X127.223 Y101.799 F13392.0  ;Modified
+G1 X127.223 Y101.799 F12000  ;Modified
 G1 Z5.4 F803.52  ;Modified
-G1 E.8 F1674.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -5787,16 +5787,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2343.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10713.6  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2343.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.6 F803.52  ;Modified
-G1 X128.213 Y107.209 F13392.0  ;Modified
+G1 X128.213 Y107.209 F12000  ;Modified
 G1 Z5.4 F803.52  ;Modified
-G1 E.8 F1674.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1090.3319999999999  ;Modified
 G1 X128.409 Y107.376 E.00873  ;Modified
@@ -5810,17 +5810,17 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2343.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10713.6  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
 M73 P53 R3
-G1 E-.008 F2343.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.6 F803.52  ;Modified
-G1 X126.937 Y100.815 F13392.0  ;Modified
+G1 X126.937 Y100.815 F12000  ;Modified
 G1 Z5.4 F803.52  ;Modified
-G1 E.8 F1674.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -5830,18 +5830,18 @@ G1 X127.045 Y101.366 E.01476  ;Modified
 G1 X126.939 Y101.508 E.00719  ;Modified
 G1 X126.68 Y101.249 E.01486  ;Modified
 M204 P1000
-G1 E-.64 F2343.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10713.6  ;Modified
 G1 X126.939 Y101.508 E-.07601  ;Modified
 G1 X127.045 Y101.366 E-.03679  ;Modified
 G1 X127.092 Y101.184 E-.03921  ;Modified
 ;WIPE_END
-G1 E-.008 F2343.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.6 F803.52  ;Modified
-G1 X128.293 Y106.721 F13392.0  ;Modified
+G1 X128.293 Y106.721 F12000  ;Modified
 G1 Z5.4 F803.52  ;Modified
-G1 E.8 F1674.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.476635
 G1 F1090.3319999999999  ;Modified
@@ -5908,20 +5908,20 @@ G92 E0.0
 ;5.6
 
 
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X128.341 Y106.77 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2360.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.6 F809.28  ;Modified
 ;AFTER_LAYER_CHANGE
 ;5.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z5.8  ;Modified
-G1 X128.866 Y103.393 F13488.0  ;Modified
+G1 X128.866 Y103.393 F12000  ;Modified
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -5954,7 +5954,7 @@ G1 X129.368 Y103.353 E.09211  ;Modified
 G1 X128.976 Y103.353 E.01328  ;Modified
 G1 X128.922 Y103.373 E.00192  ;Modified
 M204 P1000
-G1 X128.976 Y103.76 F13488.0  ;Modified
+G1 X128.976 Y103.76 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1124.0  ;Modified
@@ -5980,7 +5980,7 @@ G1 X129.775 Y100.225 E.11919  ;Modified
 G1 X129.775 Y103.76 E.11966  ;Modified
 G1 X129.036 Y103.76 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.711 F13488.0  ;Modified
+G1 X128.846 Y103.711 F12000  ;Modified
 G1 X128.867 Y102.613  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -5988,16 +5988,16 @@ M204 P1500
 G1 F1124.0  ;Modified
 G1 X128.273 Y103.206 E.0301  ;Modified
 M204 P1000
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X128.791 Y102.689 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2360.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.8 F809.28  ;Modified
-G1 X127.252 Y101.867 F13488.0  ;Modified
+G1 X127.252 Y101.867 F12000  ;Modified
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -6014,16 +6014,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2360.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.8 F809.28  ;Modified
-G1 X128.137 Y107.246 F13488.0  ;Modified
+G1 X128.137 Y107.246 F12000  ;Modified
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1124.0  ;Modified
 G1 X128.427 Y107.485 E.01273  ;Modified
@@ -6037,48 +6037,48 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2360.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.8 F809.28  ;Modified
-G1 X123.146 Y100.815 F13488.0  ;Modified
+G1 X123.146 Y100.815 F12000  ;Modified
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
 G1 F1124.0  ;Modified
 G1 X122.649 Y101.312 E.02856  ;Modified
 M204 P1000
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X123.146 Y100.815 E-.14611  ;Modified
 ;WIPE_END
-G1 E-.01389 F2360.4  ;Modified
+G1 E-.01389 F2100  ;Modified
 G1 Z5.8 F809.28  ;Modified
-G1 X127.393 Y101.135 F13488.0  ;Modified
+G1 X127.393 Y101.135 F12000  ;Modified
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.471745
 G1 F1124.0  ;Modified
 G1 X126.812 Y101.717 E.02933  ;Modified
 M204 P1000
-G1 E-.64 F2360.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10790.4  ;Modified
 G1 X127.329 Y101.199 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2360.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.8 F809.28  ;Modified
-G1 X129.185 Y107.029 F13488.0  ;Modified
+G1 X129.185 Y107.029 F12000  ;Modified
 M73 P55 R3
 G1 Z5.6 F809.28  ;Modified
-G1 E.8 F1686.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.531415
 G1 F1124.0  ;Modified
@@ -6148,22 +6148,22 @@ G92 E0.0
 ;5.8
 
 
-G1 E-.64 F2377.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10867.2  ;Modified
 G1 X128.503 Y107.02 E-.07397  ;Modified
 G1 X128.65 Y107.141 E-.03965  ;Modified
 G1 X128.829 Y107.188 E-.03838  ;Modified
 ;WIPE_END
-G1 E-.008 F2377.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z5.8 F815.04  ;Modified
 ;AFTER_LAYER_CHANGE
 ;5.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z6  ;Modified
-G1 X128.883 Y103.28 F13584.0  ;Modified
+G1 X128.883 Y103.28 F12000  ;Modified
 G1 Z5.8 F815.04  ;Modified
-G1 E.8 F1698.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -6198,7 +6198,7 @@ G1 X129.368 Y103.255 E.08877  ;Modified
 G1 X128.976 Y103.255 E.01328  ;Modified
 G1 X128.941 Y103.264 E.00122  ;Modified
 M204 P1000
-G1 X128.976 Y103.662 F13584.0  ;Modified
+G1 X128.976 Y103.662 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1056.156  ;Modified
@@ -6224,7 +6224,7 @@ G1 X129.775 Y100.225 E.1159  ;Modified
 G1 X129.775 Y103.662 E.11633  ;Modified
 G1 X129.036 Y103.662 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.612 F13584.0  ;Modified
+G1 X128.846 Y103.612 F12000  ;Modified
 G1 X129.185 Y102.873  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -6235,18 +6235,18 @@ G1 X128.661 Y102.752 E.01358  ;Modified
 G1 X128.493 Y102.872 E.00839  ;Modified
 G1 X128.754 Y103.133 E.01502  ;Modified
 M204 P1000
-G1 E-.64 F2377.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10867.2  ;Modified
 G1 X128.493 Y102.872 E-.07683  ;Modified
 G1 X128.661 Y102.752 E-.04292  ;Modified
 G1 X128.812 Y102.716 E-.03225  ;Modified
 ;WIPE_END
-G1 E-.008 F2377.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6 F815.04  ;Modified
-G1 X127.132 Y100.815 F13584.0  ;Modified
+G1 X127.132 Y100.815 F12000  ;Modified
 G1 Z5.8 F815.04  ;Modified
-G1 E.8 F1698.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F1056.156  ;Modified
 G1 X127.331 Y101.014 E.01142  ;Modified
@@ -6254,7 +6254,7 @@ G1 X127.253 Y101.339 E.01356  ;Modified
 G1 X127.133 Y101.507 E.0084  ;Modified
 G1 X126.878 Y101.252 E.01469  ;Modified
 M204 P1000
-G1 X127.281 Y101.935 F13584.0  ;Modified
+G1 X127.281 Y101.935 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -6338,20 +6338,20 @@ G92 E0.0
 ;6
 
 
-G1 E-.64 F2394.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10944.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2394.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6 F820.8  ;Modified
 ;AFTER_LAYER_CHANGE
 ;6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z6.2  ;Modified
-G1 X128.885 Y103.18 F13680.0  ;Modified
+G1 X128.885 Y103.18 F12000  ;Modified
 G1 Z6 F820.8  ;Modified
-G1 E.8 F1710.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -6387,7 +6387,7 @@ G1 X129.368 Y103.156 E.08543  ;Modified
 G1 X128.976 Y103.156 E.01328  ;Modified
 G1 X128.943 Y103.165 E.00115  ;Modified
 M204 P1000
-G1 X128.976 Y103.563 F13680.0  ;Modified
+G1 X128.976 Y103.563 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1121.76  ;Modified
@@ -6412,7 +6412,7 @@ G1 X129.775 Y100.225 E.11261  ;Modified
 G1 X129.775 Y103.563 E.11299  ;Modified
 G1 X129.036 Y103.563 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.513 F13680.0  ;Modified
+G1 X128.846 Y103.513 F12000  ;Modified
 G1 X128.87 Y102.413  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -6421,7 +6421,7 @@ G1 F1121.76  ;Modified
 M73 P58 R3
 G1 X128.283 Y103 E.02977  ;Modified
 M204 P1000
-G1 X127.31 Y102.003 F13680.0  ;Modified
+G1 X127.31 Y102.003 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -6438,16 +6438,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2394.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10944.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2394.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.2 F820.8  ;Modified
-G1 X127.979 Y107.328 F13680.0  ;Modified
+G1 X127.979 Y107.328 F12000  ;Modified
 G1 Z6 F820.8  ;Modified
-G1 E.8 F1710.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1121.76  ;Modified
 G1 X128.467 Y107.703 E.02083  ;Modified
@@ -6461,47 +6461,47 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2394.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10944.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2394.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.2 F820.8  ;Modified
-G1 X122.941 Y100.815 F13680.0  ;Modified
+G1 X122.941 Y100.815 F12000  ;Modified
 G1 Z6 F820.8  ;Modified
-G1 E.8 F1710.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
 G1 F1121.76  ;Modified
 G1 X122.447 Y101.309 E.02835  ;Modified
 M204 P1000
-G1 E-.64 F2394.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10944.0  ;Modified
 G1 X122.941 Y100.815 E-.14505  ;Modified
 ;WIPE_END
-G1 E-.01495 F2394.0  ;Modified
+G1 E-.01495 F2100  ;Modified
 G1 Z6.2 F820.8  ;Modified
-G1 X127.59 Y101.132 F13680.0  ;Modified
+G1 X127.59 Y101.132 F12000  ;Modified
 G1 Z6 F820.8  ;Modified
-G1 E.8 F1710.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.471729
 G1 F1121.76  ;Modified
 G1 X127.015 Y101.708 E.02902  ;Modified
 M204 P1000
-G1 E-.64 F2394.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F10944.0  ;Modified
 G1 X127.532 Y101.191 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2394.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.2 F820.8  ;Modified
-G1 X129.185 Y107.227 F13680.0  ;Modified
+G1 X129.185 Y107.227 F12000  ;Modified
 G1 Z6 F820.8  ;Modified
-G1 E.8 F1710.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.531415
 G1 F1121.76  ;Modified
@@ -6571,22 +6571,22 @@ G92 E0.0
 ;6.2
 
 
-G1 E-.64 F2410.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X128.503 Y107.218 E-.07316  ;Modified
 G1 X128.679 Y107.353 E-.0461  ;Modified
 G1 X128.832 Y107.389 E-.03275  ;Modified
 ;WIPE_END
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.2 F826.56  ;Modified
 ;AFTER_LAYER_CHANGE
 ;6.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z6.4  ;Modified
-G1 X128.887 Y103.08 F13776.0  ;Modified
+G1 X128.887 Y103.08 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -6622,7 +6622,7 @@ G1 X129.368 Y100.632 E.08176  ;Modified
 G1 X129.368 Y103.057 E.08209  ;Modified
 G1 X128.945 Y103.065 E.01432  ;Modified
 M204 P1000
-G1 X128.976 Y103.464 F13776.0  ;Modified
+G1 X128.976 Y103.464 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1161.7759999999998  ;Modified
@@ -6663,49 +6663,49 @@ G1 X129.775 Y100.225 E.10932  ;Modified
 G1 X129.775 Y103.464 E.10965  ;Modified
 G1 X129.036 Y103.464 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.414 F13776.0  ;Modified
-G1 E-.64 F2410.8  ;Modified
+G1 X128.846 Y103.414 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X128.845 Y103.512 E-.0408  ;Modified
 G1 X128.772 Y103.667 E-.03568  ;Modified
 G1 X128.772 Y104.031 E-.07552  ;Modified
 ;WIPE_END
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F826.56  ;Modified
-G1 X128.966 Y105.003 F13776.0  ;Modified
+G1 X128.966 Y105.003 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.38292
 G1 F1161.7759999999998  ;Modified
 G1 X129.874 Y105.003 E.02566  ;Modified
 M204 P1000
-G1 E-.64 F2410.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X129.143 Y105.003 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F826.56  ;Modified
-G1 X124.996 Y100.093 F13776.0  ;Modified
+G1 X124.996 Y100.093 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 G1 F1161.7759999999998  ;Modified
 G1 X124.996 Y101.031 E.02651  ;Modified
 M204 P1000
-G1 E-.64 F2410.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X124.996 Y100.299 E-.152  ;Modified
 ;WIPE_END
 M73 P60 R3
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F826.56  ;Modified
-G1 X127.327 Y100.815 F13776.0  ;Modified
+G1 X127.327 Y100.815 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -6716,7 +6716,7 @@ G1 X127.364 Y101.469 E.00765  ;Modified
 G1 X127.328 Y101.507 E.00212  ;Modified
 G1 X127.076 Y101.255 E.0145  ;Modified
 M204 P1000
-G1 X127.34 Y102.071 F13776.0  ;Modified
+G1 X127.34 Y102.071 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -6733,16 +6733,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2410.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F826.56  ;Modified
-G1 X127.967 Y107.356 F13776.0  ;Modified
+G1 X127.967 Y107.356 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1161.7759999999998  ;Modified
 G1 X127.943 Y107.408 E.00195  ;Modified
@@ -6757,16 +6757,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2410.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11020.8  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2410.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F826.56  ;Modified
-G1 X129.185 Y102.675 F13776.0  ;Modified
+G1 X129.185 Y102.675 F12000  ;Modified
 G1 Z6.2 F826.56  ;Modified
-G1 E.8 F1722.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -6838,7 +6838,7 @@ G92 E0.0
 ;6.4
 
 
-G1 E-.64 F2427.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X128.493 Y102.674 E-.07589  ;Modified
@@ -6846,13 +6846,13 @@ G1 X128.532 Y102.638 E-.01099  ;Modified
 G1 X128.692 Y102.541 E-.03895  ;Modified
 G1 X128.815 Y102.514 E-.02616  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.4 F832.32  ;Modified
 ;AFTER_LAYER_CHANGE
 ;6.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
-G1 X128.889 Y102.98 F13872.0  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 X128.889 Y102.98 F12000  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -6890,7 +6890,7 @@ G1 X129.368 Y100.632 E.07847  ;Modified
 G1 X129.368 Y102.959 E.07875  ;Modified
 G1 X128.947 Y102.966 E.01424  ;Modified
 M204 P1000
-G1 X128.976 Y103.366 F13872.0  ;Modified
+G1 X128.976 Y103.366 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1166.404  ;Modified
@@ -6929,19 +6929,19 @@ G1 X129.775 Y100.225 E.10603  ;Modified
 G1 X129.775 Y103.366 E.10631  ;Modified
 G1 X129.036 Y103.366 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.315 F13872.0  ;Modified
-G1 E-.64 F2427.6  ;Modified
+G1 X128.846 Y103.315 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X128.845 Y103.413 E-.04081  ;Modified
 G1 X128.772 Y103.569 E-.03569  ;Modified
 G1 X128.772 Y103.932 E-.0755  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F832.32  ;Modified
-G1 X128.959 Y105.003 F13872.0  ;Modified
+G1 X128.959 Y105.003 F12000  ;Modified
 G1 Z6.4 F832.32  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.429022
 G1 F1166.404  ;Modified
@@ -6949,38 +6949,38 @@ G1 X128.976 Y105.003 E.00054  ;Modified
 ;WIDTH:0.427554
 G1 X129.786 Y105.003 E.02593  ;Modified
 M204 P1000
-G1 E-.64 F2427.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X129.055 Y105.003 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F832.32  ;Modified
-G1 X124.996 Y100.184 F13872.0  ;Modified
+G1 X124.996 Y100.184 F12000  ;Modified
 G1 Z6.4 F832.32  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.38292
 G1 F1166.404  ;Modified
 G1 X124.996 Y101.039 E.02417  ;Modified
 M204 P1000
-G1 E-.64 F2427.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X124.996 Y100.307 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F832.32  ;Modified
-G1 X122.73 Y100.815 F13872.0  ;Modified
+G1 X122.73 Y100.815 F12000  ;Modified
 G1 Z6.4 F832.32  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
 G1 F1166.404  ;Modified
 G1 X122.244 Y101.301 E.0279  ;Modified
 M204 P1000
-G1 X122.394 Y101.934 F13872.0  ;Modified
+G1 X122.394 Y101.934 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -7000,7 +7000,7 @@ G1 X128.62 Y107.968 E.01314  ;Modified
 G1 X128.512 Y107.922 E.00399  ;Modified
 G1 X128.064 Y107.604 E.01859  ;Modified
 M204 P1000
-G1 X129.185 Y107.425 F13872.0  ;Modified
+G1 X129.185 Y107.425 F12000  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -7010,24 +7010,24 @@ G1 X128.712 Y107.565 E.01142  ;Modified
 G1 X128.503 Y107.416 E.01041  ;Modified
 G1 X128.749 Y107.17 E.01415  ;Modified
 M204 P1000
-G1 E-.64 F2427.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X128.503 Y107.416 E-.07242  ;Modified
 G1 X128.712 Y107.565 E-.05325  ;Modified
 G1 X128.836 Y107.591 E-.02633  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F832.32  ;Modified
-G1 X128.873 Y102.213 F13872.0  ;Modified
+G1 X128.873 Y102.213 F12000  ;Modified
 G1 Z6.4 F832.32  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;WIDTH:0.474299
 G1 F1166.404  ;Modified
 G1 X128.292 Y102.793 E.02944  ;Modified
 M204 P1000
-G1 X127.354 Y102.032 F13872.0  ;Modified
+G1 X127.354 Y102.032 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -7045,16 +7045,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2427.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11097.6  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2427.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F832.32  ;Modified
-G1 X127.787 Y101.129 F13872.0  ;Modified
+G1 X127.787 Y101.129 F12000  ;Modified
 G1 Z6.4 F832.32  ;Modified
-G1 E.8 F1734.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.471709
@@ -7122,20 +7122,20 @@ G92 E0.0
 ;6.6
 
 
-G1 E-.64 F2444.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X127.736 Y101.181 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.6 F838.08  ;Modified
 ;AFTER_LAYER_CHANGE
 ;6.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z6.8  ;Modified
-G1 X128.892 Y102.88 F13968.0  ;Modified
+G1 X128.892 Y102.88 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -7179,7 +7179,7 @@ G1 X129.368 Y100.632 E.07518  ;Modified
 G1 X129.368 Y102.86 E.07541  ;Modified
 G1 X128.95 Y102.866 E.01415  ;Modified
 M204 P1000
-G1 X128.976 Y103.267 F13968.0  ;Modified
+G1 X128.976 Y103.267 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1157.016  ;Modified
@@ -7233,19 +7233,19 @@ G1 X129.775 Y100.225 E.10274  ;Modified
 G1 X129.775 Y103.267 E.10297  ;Modified
 G1 X129.036 Y103.267 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.216 F13968.0  ;Modified
-G1 E-.64 F2444.4  ;Modified
+G1 X128.846 Y103.216 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X128.845 Y103.315 E-.04082  ;Modified
 G1 X128.772 Y103.47 E-.0357  ;Modified
 G1 X128.772 Y103.833 E-.07548  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F838.08  ;Modified
-G1 X128.951 Y105.003 F13968.0  ;Modified
+G1 X128.951 Y105.003 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.605642
 G1 F1157.016  ;Modified
@@ -7253,17 +7253,17 @@ G1 X128.976 Y105.003 E.00115  ;Modified
 ;WIDTH:0.6035
 G1 X129.698 Y105.003 E.03369  ;Modified
 M204 P1000
-G1 E-.64 F2444.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X128.976 Y105.003 E-.15019  ;Modified
 G1 X128.967 Y105.003 E-.00181  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F838.08  ;Modified
-G1 X124.996 Y101.047 F13968.0  ;Modified
+G1 X124.996 Y101.047 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P700
 ;WIDTH:0.549926
 G1 F1157.016  ;Modified
@@ -7271,16 +7271,16 @@ G1 X124.996 Y101.024 E.00093  ;Modified
 ;WIDTH:0.548
 G1 X124.996 Y100.274 E.03152  ;Modified
 M204 P1000
-G1 E-.64 F2444.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X124.996 Y101.005 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F838.08  ;Modified
-G1 X127.523 Y100.815 F13968.0  ;Modified
+G1 X127.523 Y100.815 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -7291,7 +7291,7 @@ G1 X127.563 Y101.461 E.00974  ;Modified
 G1 X127.523 Y101.506 E.00246  ;Modified
 G1 X127.274 Y101.258 E.01427  ;Modified
 M204 P1000
-G1 X127.971 Y101.569 F13968.0  ;Modified
+G1 X127.971 Y101.569 F12000  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -7308,16 +7308,16 @@ G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
 M73 P64 R2
-G1 E-.64 F2444.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F838.08  ;Modified
-G1 X128.396 Y107.936 F13968.0  ;Modified
+G1 X128.396 Y107.936 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1157.016  ;Modified
 G1 X128.536 Y108.031 E.00573  ;Modified
@@ -7331,16 +7331,16 @@ G1 X121.326 Y100.998 E.01107  ;Modified
 G1 X120.998 Y101.326 E.01566  ;Modified
 G1 X120.998 Y103.326 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2444.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11174.4  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2444.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F838.08  ;Modified
-G1 X129.185 Y102.477 F13968.0  ;Modified
+G1 X129.185 Y102.477 F12000  ;Modified
 G1 Z6.6 F838.08  ;Modified
-G1 E.8 F1746.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.531415
@@ -7412,7 +7412,7 @@ G92 E0.0
 ;6.8
 
 
-G1 E-.64 F2461.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11251.2  ;Modified
 G1 X128.494 Y102.477 E-.07474  ;Modified
@@ -7420,13 +7420,13 @@ G1 X128.538 Y102.436 E-.01254  ;Modified
 G1 X128.749 Y102.321 E-.04989  ;Modified
 G1 X128.819 Y102.309 E-.01483  ;Modified
 ;WIPE_END
-G1 E-.008 F2461.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z6.8 F843.84  ;Modified
 ;AFTER_LAYER_CHANGE
 ;6.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
-G1 X128.894 Y102.78 F14064.0  ;Modified
-G1 E.8 F1758.0  ;Modified
+G1 X128.894 Y102.78 F12000  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -7470,7 +7470,7 @@ G1 X129.368 Y100.632 E.07189  ;Modified
 G1 X129.368 Y102.761 E.07208  ;Modified
 G1 X128.953 Y102.767 E.01406  ;Modified
 M204 P1000
-G1 X128.976 Y103.168 F14064.0  ;Modified
+G1 X128.976 Y103.168 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1095.82  ;Modified
@@ -7521,19 +7521,19 @@ G1 X129.775 Y100.225 E.09945  ;Modified
 G1 X129.775 Y103.168 E.09963  ;Modified
 G1 X129.036 Y103.168 E.02503  ;Modified
 M204 P1000
-G1 X128.846 Y103.117 F14064.0  ;Modified
-G1 E-.64 F2461.2  ;Modified
+G1 X128.846 Y103.117 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11251.2  ;Modified
 G1 X128.845 Y103.216 E-.04083  ;Modified
 G1 X128.772 Y103.372 E-.03571  ;Modified
 G1 X128.772 Y103.735 E-.07546  ;Modified
 ;WIPE_END
-G1 E-.008 F2461.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7 F843.84  ;Modified
-G1 X127.212 Y101.807 F14064.0  ;Modified
+G1 X127.212 Y101.807 F12000  ;Modified
 G1 Z6.8 F843.84  ;Modified
-G1 E.8 F1758.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -7551,16 +7551,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2461.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11251.2  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2461.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7 F843.84  ;Modified
-G1 X128.193 Y107.211 F14064.0  ;Modified
+G1 X128.193 Y107.211 F12000  ;Modified
 G1 Z6.8 F843.84  ;Modified
-G1 E.8 F1758.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1095.82  ;Modified
 M73 P66 R2
@@ -7637,20 +7637,20 @@ G92 E0.0
 ;7
 
 
-G1 E-.64 F2478.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11328.0  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2478.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7 F849.6  ;Modified
 ;AFTER_LAYER_CHANGE
 ;7
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z7.2  ;Modified
-G1 X128.897 Y102.68 F14160.0  ;Modified
+G1 X128.897 Y102.68 F12000  ;Modified
 G1 Z7 F849.6  ;Modified
-G1 E.8 F1770.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -7696,7 +7696,7 @@ G1 X129.368 Y100.632 E.06861  ;Modified
 G1 X129.368 Y102.663 E.06874  ;Modified
 G1 X128.955 Y102.667 E.01396  ;Modified
 M204 P1000
-G1 X128.976 Y103.07 F14160.0  ;Modified
+G1 X128.976 Y103.07 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1111.56  ;Modified
@@ -7743,19 +7743,19 @@ G1 X129.775 Y100.225 E.09616  ;Modified
 G1 X129.775 Y103.07 E.0963  ;Modified
 G1 X129.036 Y103.07 E.02503  ;Modified
 M204 P1000
-G1 X128.847 Y103.018 F14160.0  ;Modified
-G1 E-.64 F2478.0  ;Modified
+G1 X128.847 Y103.018 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11328.0  ;Modified
 G1 X128.845 Y103.117 E-.04084  ;Modified
 G1 X128.772 Y103.273 E-.03572  ;Modified
 G1 X128.772 Y103.636 E-.07544  ;Modified
 ;WIPE_END
-G1 E-.008 F2478.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.2 F849.6  ;Modified
-G1 X127.229 Y101.861 F14160.0  ;Modified
+G1 X127.229 Y101.861 F12000  ;Modified
 G1 Z7 F849.6  ;Modified
-G1 E.8 F1770.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -7773,16 +7773,16 @@ G1 X120.998 Y108.674 E.01107  ;Modified
 G1 X121.326 Y109.002 E.01566  ;Modified
 G1 X123.326 Y109.002 E.0677  ;Modified
 M204 P1000
-G1 E-.64 F2478.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11328.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2478.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.2 F849.6  ;Modified
-G1 X128.149 Y107.222 F14160.0  ;Modified
+G1 X128.149 Y107.222 F12000  ;Modified
 G1 Z7 F849.6  ;Modified
-G1 E.8 F1770.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 G1 F1111.56  ;Modified
 G1 X128.216 Y107.349 E.00486  ;Modified
@@ -7859,20 +7859,20 @@ G92 E0.0
 
 
 M73 P68 R2
-G1 E-.64 F2494.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11404.8  ;Modified
 G1 X120.998 Y102.594 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2494.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.2 F855.36  ;Modified
 ;AFTER_LAYER_CHANGE
 ;7.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z7.4  ;Modified
-G1 X128.9 Y102.58 F14256.0  ;Modified
+G1 X128.9 Y102.58 F12000  ;Modified
 G1 Z7.2 F855.36  ;Modified
-G1 E.8 F1782.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -7918,7 +7918,7 @@ G1 X129.368 Y100.632 E.06532  ;Modified
 G1 X129.368 Y102.564 E.0654  ;Modified
 G1 X128.958 Y102.568 E.01386  ;Modified
 M204 P1000
-G1 X128.976 Y102.971 F14256.0  ;Modified
+G1 X128.976 Y102.971 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1126.224  ;Modified
@@ -7981,19 +7981,19 @@ G1 X129.775 Y100.225 E.09287  ;Modified
 G1 X129.775 Y102.971 E.09296  ;Modified
 G1 X129.036 Y102.971 E.02503  ;Modified
 M204 P1000
-G1 X128.847 Y102.919 F14256.0  ;Modified
-G1 E-.64 F2494.8  ;Modified
+G1 X128.847 Y102.919 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11404.8  ;Modified
 G1 X128.845 Y103.019 E-.04085  ;Modified
 G1 X128.772 Y103.175 E-.03573  ;Modified
 G1 X128.772 Y103.537 E-.07542  ;Modified
 ;WIPE_END
-G1 E-.008 F2494.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.4 F855.36  ;Modified
-G1 X127.24 Y101.905 F14256.0  ;Modified
+G1 X127.24 Y101.905 F12000  ;Modified
 G1 Z7.2 F855.36  ;Modified
-G1 E.8 F1782.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -8081,22 +8081,22 @@ G92 E0.0
 ;7.4
 
 
-G1 E-.64 F2511.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11481.6  ;Modified
 G1 X128.225 Y107.457 E-.05299  ;Modified
 G1 X128.591 Y107.729 E-.09486  ;Modified
 G1 X128.611 Y107.733 E-.00415  ;Modified
 ;WIPE_END
-G1 E-.008 F2511.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.4 F861.12  ;Modified
 ;AFTER_LAYER_CHANGE
 ;7.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z7.6  ;Modified
-G1 X127.341 Y101.459 F14352.0  ;Modified
+G1 X127.341 Y101.459 F12000  ;Modified
 G1 Z7.4 F861.12  ;Modified
-G1 E.8 F1794.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -8150,7 +8150,7 @@ G1 X126.924 Y101.635 E.04445  ;Modified
 G1 X127.055 Y101.621 E.00447  ;Modified
 G1 X127.3 Y101.501 E.00925  ;Modified
 M204 P1000
-G1 X127.056 Y101.18 F14352.0  ;Modified
+G1 X127.056 Y101.18 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1215.136  ;Modified
@@ -8192,49 +8192,49 @@ G1 X125.611 Y101.228 E.00503  ;Modified
 G1 X126.924 Y101.228 E.04445  ;Modified
 G1 X126.999 Y101.201 E.00271  ;Modified
 M204 P1000
-G1 X127.221 Y101.228 F14352.0  ;Modified
-G1 E-.64 F2511.6  ;Modified
+G1 X127.221 Y101.228 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11481.6  ;Modified
 G1 X127.128 Y101.024 E-.04542  ;Modified
 G1 X127.128 Y100.512 E-.10658  ;Modified
 ;WIPE_END
-G1 E-.008 F2511.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.6 F861.12  ;Modified
-G1 X128.92 Y105.003 F14352.0  ;Modified
+G1 X128.92 Y105.003 F12000  ;Modified
 G1 Z7.4 F861.12  ;Modified
-G1 E.8 F1794.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.497964
 G1 F1215.136  ;Modified
 G1 X129.346 Y105.003 E.01612  ;Modified
 M204 P1000
-G1 E-.64 F2511.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11481.6  ;Modified
 G1 X128.92 Y105.003 E-.08855  ;Modified
 ;WIPE_END
-G1 E-.07145 F2511.6  ;Modified
+G1 E-.07145 F2100  ;Modified
 G1 Z7.6 F861.12  ;Modified
-G1 X124.996 Y100.636 F14352.0  ;Modified
+G1 X124.996 Y100.636 F12000  ;Modified
 G1 Z7.4 F861.12  ;Modified
-G1 E.8 F1794.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;WIDTH:0.461964
 G1 F1215.136  ;Modified
 G1 X124.996 Y101.078 E.01542  ;Modified
 M204 P1000
-G1 E-.64 F2511.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11481.6  ;Modified
 G1 X124.996 Y100.636 E-.09195  ;Modified
 ;WIPE_END
-G1 E-.06805 F2511.6  ;Modified
+G1 E-.06805 F2100  ;Modified
 G1 Z7.6 F861.12  ;Modified
-G1 X128.054 Y107.246 F14352.0  ;Modified
+G1 X128.054 Y107.246 F12000  ;Modified
 G1 Z7.4 F861.12  ;Modified
-G1 E.8 F1794.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -8336,20 +8336,20 @@ G92 E0.0
 ;7.6
 
 
-G1 E-.64 F2528.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11558.4  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2528.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.6 F866.88  ;Modified
 ;AFTER_LAYER_CHANGE
 ;7.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z7.8  ;Modified
-G1 X128.939 Y102.393 F14448.0  ;Modified
+G1 X128.939 Y102.393 F12000  ;Modified
 G1 Z7.6 F866.88  ;Modified
-G1 E.8 F1806.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -8420,7 +8420,7 @@ G1 X129.368 Y100.632 E.05874  ;Modified
 G1 X129.368 Y102.367 E.05872  ;Modified
 G1 X128.999 Y102.39 E.01252  ;Modified
 M204 P1000
-G1 X128.976 Y102.774 F14448.0  ;Modified
+G1 X128.976 Y102.774 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1185.94  ;Modified
@@ -8461,19 +8461,19 @@ G1 X129.775 Y100.225 E.0863  ;Modified
 G1 X129.775 Y102.774 E.08628  ;Modified
 G1 X129.036 Y102.774 E.02503  ;Modified
 M204 P1000
-G1 X128.849 Y102.721 F14448.0  ;Modified
-G1 E-.64 F2528.4  ;Modified
+G1 X128.849 Y102.721 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11558.4  ;Modified
 G1 X128.847 Y102.82 E-.04041  ;Modified
 G1 X128.772 Y102.978 E-.03622  ;Modified
 G1 X128.772 Y103.34 E-.07537  ;Modified
 ;WIPE_END
-G1 E-.008 F2528.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.8 F866.88  ;Modified
-G1 X124.996 Y100.726 F14448.0  ;Modified
+G1 X124.996 Y100.726 F12000  ;Modified
 G1 Z7.6 F866.88  ;Modified
-G1 E.8 F1806.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.64351
@@ -8481,16 +8481,16 @@ G1 F1185.94  ;Modified
 M73 P73 R2
 G1 X124.997 Y101.086 E.01798  ;Modified
 M204 P1000
-G1 E-.64 F2528.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11558.4  ;Modified
 G1 X124.996 Y100.726 E-.07481  ;Modified
 ;WIPE_END
-G1 E-.08519 F2528.4  ;Modified
+G1 E-.08519 F2100  ;Modified
 G1 Z7.8 F866.88  ;Modified
-G1 X122.75 Y101.967 F14448.0  ;Modified
+G1 X122.75 Y101.967 F12000  ;Modified
 G1 Z7.6 F866.88  ;Modified
-G1 E.8 F1806.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -8579,7 +8579,7 @@ G92 E0.0
 ;7.8
 
 
-G1 E-.64 F2545.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11635.2  ;Modified
 G1 X127.508 Y101.874 E-.05684  ;Modified
@@ -8587,15 +8587,15 @@ G1 X127.651 Y101.773 E-.03641  ;Modified
 G1 X127.783 Y101.639 E-.03906  ;Modified
 G1 X127.83 Y101.557 E-.01969  ;Modified
 ;WIPE_END
-G1 E-.008 F2545.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z7.8 F872.64  ;Modified
 ;AFTER_LAYER_CHANGE
 ;7.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z8  ;Modified
-G1 X129.368 Y109.368 F14544.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z7.8 F872.64  ;Modified
-G1 E.8 F1818.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -8629,7 +8629,7 @@ M204 P900
 ;TYPE:Perimeter
 G1 X129.368 Y109.308 E.08482  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F14544.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1818.0  ;Modified
@@ -8664,16 +8664,16 @@ M204 P700
 ;TYPE:External perimeter
 G1 X129.775 Y109.715 E.0986  ;Modified
 M204 P1000
-G1 E-.64 F2545.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11635.2  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2545.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8 F872.64  ;Modified
-G1 X126.77 Y108.989 F14544.0  ;Modified
+G1 X126.77 Y108.989 F12000  ;Modified
 G1 Z7.8 F872.64  ;Modified
-G1 E.8 F1818.0  ;Modified
+G1 E.8 F1500  ;Modified
 ;TYPE:Bridge infill
 ;WIDTH:0.466522
 G1 X129.002 Y108.596 E.0798  ;Modified
@@ -8719,16 +8719,16 @@ G1 X125.739 Y100.998 E.08592  ;Modified
 G1 X120.998 Y101.834 E.16955  ;Modified
 G1 X120.998 Y101.404 E.01515  ;Modified
 G1 X124.338 Y100.815 E.11945  ;Modified
-G1 E-.64 F2545.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11635.2  ;Modified
 G1 X123.618 Y100.942 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2545.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8 F872.64  ;Modified
-G1 X125.793 Y107.793 F14544.0  ;Modified
+G1 X125.793 Y107.793 F12000  ;Modified
 G1 Z7.8 F872.64  ;Modified
-G1 E.8 F1818.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P2000
 ;TYPE:Internal infill
 ;WIDTH:0.45
@@ -8752,20 +8752,20 @@ G92 E0.0
 ;8
 
 
-G1 E-.64 F2562.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11712.0  ;Modified
 G1 X122.594 Y109.002 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2562.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8 F878.4  ;Modified
 ;AFTER_LAYER_CHANGE
 ;8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z8.2  ;Modified
-G1 X129.368 Y109.368 F14640.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z8 F878.4  ;Modified
-G1 E.8 F1830.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -8774,7 +8774,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F14640.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1830.0  ;Modified
@@ -8783,7 +8783,7 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F14640.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 M73 P76 R1
 G1 X129.185 Y108.355  ;Modified
 M204 P1500
@@ -8845,16 +8845,16 @@ G1 X122.041 Y100.998 E.0503  ;Modified
 G1 X121.461 Y100.998 E.01978  ;Modified
 G1 X120.815 Y101.645 E.03116  ;Modified
 M204 P1000
-G1 E-.64 F2562.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11712.0  ;Modified
 G1 X121.332 Y101.127 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2562.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.2 F878.4  ;Modified
-G1 X125.977 Y108.358 F14640.0  ;Modified
+G1 X125.977 Y108.358 F12000  ;Modified
 G1 Z8 F878.4  ;Modified
-G1 E.8 F1830.0  ;Modified
+G1 E.8 F1500  ;Modified
 ;TYPE:Bridge infill
 ;WIDTH:0.451634
 G1 X125.333 Y109.002 E.03091  ;Modified
@@ -8951,20 +8951,20 @@ G92 E0.0
 ;8.2
 
 
-G1 E-.64 F2578.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11788.8  ;Modified
 G1 X121.124 Y104.541 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2578.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.2 F884.16  ;Modified
 ;AFTER_LAYER_CHANGE
 ;8.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z8.4  ;Modified
-G1 X129.368 Y109.368 F14736.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z8.2 F884.16  ;Modified
-G1 E.8 F1842.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -8973,7 +8973,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F14736.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1842.0  ;Modified
@@ -8983,17 +8983,17 @@ G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
 M73 P78 R1
-G1 X129.389 Y109.671 F14736.0  ;Modified
-G1 E-.64 F2578.8  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11788.8  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2578.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.4 F884.16  ;Modified
-G1 X128.355 Y100.815 F14736.0  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z8.2 F884.16  ;Modified
-G1 E.8 F1842.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -9114,20 +9114,20 @@ G92 E0.0
 ;8.4
 
 
-G1 E-.64 F2595.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11865.6  ;Modified
 G1 X121.127 Y108.668 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2595.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.4 F889.92  ;Modified
 ;AFTER_LAYER_CHANGE
 ;8.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z8.6  ;Modified
-G1 X129.368 Y109.368 F14832.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z8.4 F889.92  ;Modified
-G1 E.8 F1854.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -9136,7 +9136,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F14832.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1854.0  ;Modified
@@ -9146,7 +9146,7 @@ G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
 M73 P80 R1
-G1 X129.389 Y109.671 F14832.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 G1 X129.185 Y108.355  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -9268,20 +9268,20 @@ G92 E0.0
 ;8.6
 
 
-G1 E-.64 F2612.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11942.4  ;Modified
 G1 X121.332 Y101.127 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2612.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.6 F895.68  ;Modified
 ;AFTER_LAYER_CHANGE
 ;8.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z8.8  ;Modified
-G1 X129.368 Y109.368 F14928.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z8.6 F895.68  ;Modified
-G1 E.8 F1866.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -9290,7 +9290,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F14928.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1866.0  ;Modified
@@ -9299,18 +9299,18 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F14928.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 M73 P82 R1
-G1 E-.64 F2612.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F11942.4  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2612.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.8 F895.68  ;Modified
-G1 X128.355 Y100.815 F14928.0  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z8.6 F895.68  ;Modified
-G1 E.8 F1866.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -9431,20 +9431,20 @@ G92 E0.0
 ;8.8
 
 
-G1 E-.64 F2629.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12019.2  ;Modified
 G1 X121.127 Y108.668 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2629.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z8.8 F901.44  ;Modified
 ;AFTER_LAYER_CHANGE
 ;8.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z9  ;Modified
-G1 X129.368 Y109.368 F15024.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z8.8 F901.44  ;Modified
-G1 E.8 F1878.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -9453,7 +9453,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15024.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1878.0  ;Modified
@@ -9462,7 +9462,7 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15024.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
 G1 X129.185 Y108.355  ;Modified
 M204 P1500
 ;TYPE:Solid infill
@@ -9585,20 +9585,20 @@ G92 E0.0
 ;9
 
 
-G1 E-.64 F2646.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12096.0  ;Modified
 G1 X121.332 Y101.127 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2646.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9 F907.2  ;Modified
 ;AFTER_LAYER_CHANGE
 ;9
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z9.2  ;Modified
-G1 X129.368 Y109.368 F15120.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z9 F907.2  ;Modified
-G1 E.8 F1890.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -9607,7 +9607,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15120.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1890.0  ;Modified
@@ -9616,152 +9616,152 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15120.0  ;Modified
-G1 E-.64 F2646.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12096.0  ;Modified
 M73 P86 R1
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2646.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.2 F907.2  ;Modified
-G1 X128.355 Y100.815 F15120.0  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z9 F907.2  ;Modified
-G1 E.8 F1890.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P800
 ;TYPE:Top solid infill
 ;WIDTH:0.453051
 G1 F2869.02  ;Modified
 G1 X129.185 Y101.645 E.04  ;Modified
 M204 P1000
-G1 X129.185 Y102.225 F15120.0  ;Modified
+G1 X129.185 Y102.225 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X127.775 Y100.815 E.06797  ;Modified
 M204 P1000
-G1 X127.195 Y100.815 F15120.0  ;Modified
+G1 X127.195 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y102.805 E.09595  ;Modified
 M204 P1000
-G1 X129.185 Y103.385 F15120.0  ;Modified
+G1 X129.185 Y103.385 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X126.615 Y100.815 E.12392  ;Modified
 M204 P1000
-G1 X126.035 Y100.815 F15120.0  ;Modified
+G1 X126.035 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y103.965 E.15189  ;Modified
 M204 P1000
-G1 X129.185 Y104.545 F15120.0  ;Modified
+G1 X129.185 Y104.545 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X125.455 Y100.815 E.17986  ;Modified
 M204 P1000
-G1 X124.875 Y100.815 F15120.0  ;Modified
+G1 X124.875 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y105.125 E.20784  ;Modified
 M204 P1000
-G1 X129.185 Y105.705 F15120.0  ;Modified
+G1 X129.185 Y105.705 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X124.295 Y100.815 E.23581  ;Modified
 M204 P1000
-G1 X123.715 Y100.815 F15120.0  ;Modified
+G1 X123.715 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y106.285 E.26378  ;Modified
 M204 P1000
-G1 X129.185 Y106.865 F15120.0  ;Modified
+G1 X129.185 Y106.865 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X123.135 Y100.815 E.29176  ;Modified
 M204 P1000
-G1 X122.555 Y100.815 F15120.0  ;Modified
+G1 X122.555 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y107.445 E.31973  ;Modified
 M204 P1000
-G1 X129.185 Y108.025 F15120.0  ;Modified
+G1 X129.185 Y108.025 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X121.975 Y100.815 E.3477  ;Modified
 M204 P1000
-G1 X121.395 Y100.815 F15120.0  ;Modified
+G1 X121.395 Y100.815 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X129.185 Y108.605 E.37568  ;Modified
 M204 P1000
-G1 X129.185 Y109.185 F15120.0  ;Modified
+G1 X129.185 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y100.815 E.40364  ;Modified
 M204 P1000
-G1 X120.815 Y101.395 F15120.0  ;Modified
+G1 X120.815 Y101.395 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X128.605 Y109.185 E.37567  ;Modified
 M204 P1000
-G1 X128.025 Y109.185 F15120.0  ;Modified
+G1 X128.025 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y101.975 E.3477  ;Modified
 M204 P1000
-G1 X120.815 Y102.555 F15120.0  ;Modified
+G1 X120.815 Y102.555 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X127.445 Y109.185 E.31972  ;Modified
 M204 P1000
-G1 X126.865 Y109.185 F15120.0  ;Modified
+G1 X126.865 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y103.135 E.29175  ;Modified
 M204 P1000
 M73 P87 R1
-G1 X120.815 Y103.715 F15120.0  ;Modified
+G1 X120.815 Y103.715 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X126.285 Y109.185 E.26378  ;Modified
 M204 P1000
-G1 X125.705 Y109.185 F15120.0  ;Modified
+G1 X125.705 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y104.295 E.23581  ;Modified
 M204 P1000
-G1 X120.815 Y104.875 F15120.0  ;Modified
+G1 X120.815 Y104.875 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X125.125 Y109.185 E.20783  ;Modified
 M204 P1000
-G1 X124.545 Y109.185 F15120.0  ;Modified
+G1 X124.545 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y105.455 E.17986  ;Modified
 M204 P1000
-G1 X120.815 Y106.035 F15120.0  ;Modified
+G1 X120.815 Y106.035 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X123.965 Y109.185 E.15189  ;Modified
 M204 P1000
-G1 X123.385 Y109.185 F15120.0  ;Modified
+G1 X123.385 Y109.185 F12000  ;Modified
 M204 P800
 M73 P87 R0
 G1 F2869.02  ;Modified
 G1 X120.815 Y106.615 E.12391  ;Modified
 M204 P1000
-G1 X120.815 Y107.195 F15120.0  ;Modified
+G1 X120.815 Y107.195 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X122.805 Y109.185 E.09594  ;Modified
 M204 P1000
-G1 X122.225 Y109.185 F15120.0  ;Modified
+G1 X122.225 Y109.185 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X120.815 Y107.775 E.06797  ;Modified
 M204 P1000
-G1 X120.815 Y108.355 F15120.0  ;Modified
+G1 X120.815 Y108.355 F12000  ;Modified
 M204 P800
 G1 F2869.02  ;Modified
 G1 X121.645 Y109.185 E.03999  ;Modified
@@ -9827,20 +9827,20 @@ G92 E0.0
 ;9.2
 
 
-G1 E-.64 F2662.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12172.8  ;Modified
 G1 X121.127 Y108.668 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2662.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.2 F912.96  ;Modified
 ;AFTER_LAYER_CHANGE
 ;9.2
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z9.4  ;Modified
-G1 X129.368 Y109.368 F15216.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z9.2 F912.96  ;Modified
-G1 E.8 F1902.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -9849,7 +9849,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15216.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1902.0  ;Modified
@@ -9858,18 +9858,18 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15216.0  ;Modified
-G1 E-.64 F2662.8  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 M73 P88 R0
 G1 F12172.8  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2662.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.4 F912.96  ;Modified
-G1 X122.814 Y105.967 F15216.0  ;Modified
+G1 X122.814 Y105.967 F12000  ;Modified
 G1 Z9.2 F912.96  ;Modified
-G1 E.8 F1902.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 G1 X123.204 Y105.802 E.01433  ;Modified
@@ -9904,7 +9904,7 @@ G1 X122.593 Y106.413 E.03764  ;Modified
 G1 X122.641 Y106.175 E.0082  ;Modified
 G1 X122.761 Y105.994 E.00737  ;Modified
 M204 P1000
-G1 X123.057 Y106.271 F15216.0  ;Modified
+G1 X123.057 Y106.271 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1902.0  ;Modified
@@ -9937,18 +9937,18 @@ G1 X123 Y107.524 E.00119  ;Modified
 G1 X123 Y106.413 E.03764  ;Modified
 G1 X123.035 Y106.327 E.00314  ;Modified
 M204 P1000
-G1 X123.018 Y106.117 F15216.0  ;Modified
-G1 E-.64 F2662.8  ;Modified
+G1 X123.018 Y106.117 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12172.8  ;Modified
 G1 X123.204 Y106.209 E-.04274  ;Modified
 G1 X123.729 Y106.209 E-.10926  ;Modified
 ;WIPE_END
-G1 E-.008 F2662.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.4 F912.96  ;Modified
-G1 X128.355 Y109.185 F15216.0  ;Modified
+G1 X128.355 Y109.185 F12000  ;Modified
 G1 Z9.2 F912.96  ;Modified
-G1 E.8 F1902.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -10003,16 +10003,16 @@ G1 X120.998 Y104.361 E.04823  ;Modified
 G1 X120.998 Y103.781 E.01978  ;Modified
 G1 X122.182 Y102.598 E.05707  ;Modified
 M204 P1000
-G1 E-.64 F2662.8  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12172.8  ;Modified
 G1 X121.665 Y103.115 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2662.8  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.4 F912.96  ;Modified
-G1 X127.731 Y107.489 F15216.0  ;Modified
+G1 X127.731 Y107.489 F12000  ;Modified
 G1 Z9.2 F912.96  ;Modified
-G1 E.8 F1902.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F2877.092  ;Modified
 G1 X129.002 Y106.218 E.06126  ;Modified
@@ -10103,20 +10103,20 @@ G92 E0.0
 ;9.4
 
 
-G1 E-.64 F2679.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12249.6  ;Modified
 G1 X121.127 Y101.332 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2679.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.4 F918.72  ;Modified
 ;AFTER_LAYER_CHANGE
 ;9.4
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z9.6  ;Modified
-G1 X129.368 Y109.368 F15312.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z9.4 F918.72  ;Modified
-G1 E.8 F1914.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -10125,7 +10125,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15312.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1914.0  ;Modified
@@ -10135,17 +10135,17 @@ G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
 M73 P90 R0
-G1 X129.389 Y109.671 F15312.0  ;Modified
-G1 E-.64 F2679.6  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12249.6  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2679.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.6 F918.72  ;Modified
-G1 X122.628 Y107.668 F15312.0  ;Modified
+G1 X122.628 Y107.668 F12000  ;Modified
 G1 Z9.4 F918.72  ;Modified
-G1 E.8 F1914.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 G1 X122.593 Y107.524 E.00501  ;Modified
@@ -10181,7 +10181,7 @@ G1 X122.863 Y108.031 E.01207  ;Modified
 G1 X122.66 Y107.804 E.0103  ;Modified
 G1 X122.642 Y107.727 E.00268  ;Modified
 M204 P1000
-G1 X123.003 Y107.56 F15312.0  ;Modified
+G1 X123.003 Y107.56 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1914.0  ;Modified
@@ -10213,17 +10213,17 @@ G1 X123.204 Y107.728 E.12639  ;Modified
 G1 X123.09 Y107.693 E.00402  ;Modified
 G1 X123.036 Y107.61 E.00336  ;Modified
 M204 P1000
-G1 X122.614 Y107.468 F15312.0  ;Modified
-G1 E-.64 F2679.6  ;Modified
+G1 X122.614 Y107.468 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12249.6  ;Modified
 G1 X123.014 Y106.879 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2679.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.6 F918.72  ;Modified
-G1 X128.355 Y100.815 F15312.0  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z9.4 F918.72  ;Modified
-G1 E.8 F1914.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -10236,7 +10236,7 @@ G1 X129.002 Y102.621 E.07828  ;Modified
 G1 X129.002 Y103.201 E.01978  ;Modified
 G1 X126.615 Y100.815 E.11508  ;Modified
 M204 P1000
-G1 X126.903 Y101.683 F15312.0  ;Modified
+G1 X126.903 Y101.683 F12000  ;Modified
 M204 P1500
 G1 F2975.632  ;Modified
 G1 X126.218 Y100.998 E.033  ;Modified
@@ -10281,16 +10281,16 @@ G1 X120.998 Y105.059 E.06012  ;Modified
 G1 X120.998 Y105.639 E.01978  ;Modified
 G1 X122.41 Y107.05 E.06806  ;Modified
 M204 P1000
-G1 E-.64 F2679.6  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12249.6  ;Modified
 G1 X121.893 Y106.533 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2679.6  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.6 F918.72  ;Modified
-G1 X127.818 Y102.598 F15312.0  ;Modified
+G1 X127.818 Y102.598 F12000  ;Modified
 G1 Z9.4 F918.72  ;Modified
-G1 E.8 F1914.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F2975.632  ;Modified
 G1 X129.002 Y103.782 E.05707  ;Modified
@@ -10336,7 +10336,7 @@ G1 X124.941 Y109.002 E.02412  ;Modified
 G1 X124.361 Y109.002 E.01978  ;Modified
 G1 X123.678 Y108.318 E.03295  ;Modified
 M204 P1000
-G1 X123.965 Y109.185 F15312.0  ;Modified
+G1 X123.965 Y109.185 F12000  ;Modified
 M204 P1500
 G1 F2975.632  ;Modified
 G1 X123.281 Y108.501 E.03295  ;Modified
@@ -10394,20 +10394,20 @@ G92 E0.0
 ;9.6
 
 
-G1 E-.64 F2696.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12326.4  ;Modified
 G1 X121.332 Y108.873 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2696.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.6 F924.48  ;Modified
 ;AFTER_LAYER_CHANGE
 ;9.6
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z9.8  ;Modified
-G1 X129.368 Y109.368 F15408.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z9.6 F924.48  ;Modified
-G1 E.8 F1926.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -10416,7 +10416,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15408.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1926.0  ;Modified
@@ -10426,17 +10426,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15408.0  ;Modified
-G1 E-.64 F2696.4  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12326.4  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2696.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.8 F924.48  ;Modified
-G1 X122.628 Y107.668 F15408.0  ;Modified
+G1 X122.628 Y107.668 F12000  ;Modified
 G1 Z9.6 F924.48  ;Modified
-G1 E.8 F1926.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 G1 X122.593 Y107.524 E.00501  ;Modified
@@ -10472,7 +10472,7 @@ G1 X122.863 Y108.031 E.01207  ;Modified
 G1 X122.66 Y107.804 E.0103  ;Modified
 G1 X122.642 Y107.727 E.00268  ;Modified
 M204 P1000
-G1 X123.003 Y107.56 F15408.0  ;Modified
+G1 X123.003 Y107.56 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1926.0  ;Modified
@@ -10504,18 +10504,18 @@ G1 X123.204 Y107.728 E.12639  ;Modified
 G1 X123.09 Y107.693 E.00402  ;Modified
 G1 X123.036 Y107.61 E.00336  ;Modified
 M204 P1000
-G1 X122.614 Y107.468 F15408.0  ;Modified
+G1 X122.614 Y107.468 F12000  ;Modified
 M73 P93 R0
-G1 E-.64 F2696.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12326.4  ;Modified
 G1 X123.014 Y106.879 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2696.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.8 F924.48  ;Modified
-G1 X128.355 Y109.185 F15408.0  ;Modified
+G1 X128.355 Y109.185 F12000  ;Modified
 G1 Z9.6 F924.48  ;Modified
-G1 E.8 F1926.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -10569,16 +10569,16 @@ G1 X120.998 Y104.361 E.04823  ;Modified
 G1 X120.998 Y103.781 E.01978  ;Modified
 G1 X122.182 Y102.598 E.05707  ;Modified
 M204 P1000
-G1 E-.64 F2696.4  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12326.4  ;Modified
 G1 X121.665 Y103.115 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2696.4  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.8 F924.48  ;Modified
-G1 X127.731 Y107.489 F15408.0  ;Modified
+G1 X127.731 Y107.489 F12000  ;Modified
 G1 Z9.6 F924.48  ;Modified
-G1 E.8 F1926.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F2912.112  ;Modified
 G1 X129.002 Y106.218 E.06126  ;Modified
@@ -10669,20 +10669,20 @@ G92 E0.0
 ;9.8
 
 
-G1 E-.64 F2713.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12403.2  ;Modified
 G1 X121.127 Y101.332 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2713.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z9.8 F930.2399999999999  ;Modified
 ;AFTER_LAYER_CHANGE
 ;9.8
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z10  ;Modified
-G1 X129.368 Y109.368 F15503.999999999998  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z9.8 F930.2399999999999  ;Modified
-G1 E.8 F1937.9999999999998  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -10692,7 +10692,7 @@ G1 X129.368 Y100.632 E.2957  ;Modified
 M73 P94 R0
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15503.999999999998  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1937.9999999999998  ;Modified
@@ -10701,17 +10701,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15503.999999999998  ;Modified
-G1 E-.64 F2713.2  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12403.2  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2713.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10 F930.2399999999999  ;Modified
-G1 X122.496 Y102.115 F15503.999999999998  ;Modified
+G1 X122.496 Y102.115 F12000  ;Modified
 G1 Z9.8 F930.2399999999999  ;Modified
-G1 E.8 F1937.9999999999998  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 G1 X122.663 Y101.952 E.00788  ;Modified
@@ -10746,7 +10746,7 @@ G1 X122.365 Y103.544 E.00358  ;Modified
 G1 X122.365 Y102.477 E.03612  ;Modified
 G1 X122.457 Y102.159 E.01119  ;Modified
 M204 P1000
-G1 X122.803 Y102.368 F15503.999999999998  ;Modified
+G1 X122.803 Y102.368 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1937.9999999999998  ;Modified
@@ -10780,19 +10780,19 @@ G1 X122.772 Y103.544 E.0046  ;Modified
 G1 X122.772 Y102.477 E.03612  ;Modified
 G1 X122.787 Y102.426 E.0018  ;Modified
 M204 P1000
-G1 X122.742 Y102.215 F15503.999999999998  ;Modified
-G1 E-.64 F2713.2  ;Modified
+G1 X122.742 Y102.215 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12403.2  ;Modified
 G1 X122.94 Y102.276 E-.04454  ;Modified
 G1 X122.976 Y102.273 E-.00734  ;Modified
 G1 X123.457 Y102.273 E-.10012  ;Modified
 ;WIPE_END
-G1 E-.008 F2713.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10 F930.2399999999999  ;Modified
-G1 X128.355 Y100.815 F15503.999999999998  ;Modified
+G1 X128.355 Y100.815 F12000  ;Modified
 G1 Z9.8 F930.2399999999999  ;Modified
-G1 E.8 F1937.9999999999998  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 ;TYPE:Solid infill
 ;WIDTH:0.45305
@@ -10805,7 +10805,7 @@ G1 X129.002 Y102.621 E.07828  ;Modified
 G1 X129.002 Y103.201 E.01978  ;Modified
 G1 X126.615 Y100.815 E.11508  ;Modified
 M204 P1000
-G1 X126.903 Y101.683 F15503.999999999998  ;Modified
+G1 X126.903 Y101.683 F12000  ;Modified
 M204 P1500
 G1 F3014.236  ;Modified
 G1 X126.218 Y100.998 E.033  ;Modified
@@ -10849,16 +10849,16 @@ G1 X120.998 Y105.059 E.06012  ;Modified
 G1 X120.998 Y105.639 E.01978  ;Modified
 G1 X122.41 Y107.05 E.06806  ;Modified
 M204 P1000
-G1 E-.64 F2713.2  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12403.2  ;Modified
 G1 X121.893 Y106.533 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2713.2  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10 F930.2399999999999  ;Modified
-G1 X127.818 Y102.598 F15503.999999999998  ;Modified
+G1 X127.818 Y102.598 F12000  ;Modified
 G1 Z9.8 F930.2399999999999  ;Modified
-G1 E.8 F1937.9999999999998  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P1500
 G1 F3014.236  ;Modified
 G1 X129.002 Y103.782 E.05707  ;Modified
@@ -10904,7 +10904,7 @@ G1 X124.941 Y109.002 E.02412  ;Modified
 G1 X124.361 Y109.002 E.01978  ;Modified
 G1 X123.678 Y108.318 E.03295  ;Modified
 M204 P1000
-G1 X123.965 Y109.185 F15503.999999999998  ;Modified
+G1 X123.965 Y109.185 F12000  ;Modified
 M204 P1500
 G1 F3014.236  ;Modified
 G1 X123.281 Y108.501 E.03295  ;Modified
@@ -10963,20 +10963,20 @@ G92 E0.0
 ;10
 
 
-G1 E-.64 F2730.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12480.0  ;Modified
 G1 X121.332 Y108.873 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2730.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10 F936.0  ;Modified
 ;AFTER_LAYER_CHANGE
 ;10
 ; printing object xyz-10mm-calibration-cube.stl id:0 copy 0
 G1 Z10.2  ;Modified
-G1 X129.368 Y109.368 F15600.0  ;Modified
+G1 X129.368 Y109.368 F12000  ;Modified
 G1 Z10 F936.0  ;Modified
-G1 E.8 F1950.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 ;WIDTH:0.449999
@@ -10985,7 +10985,7 @@ G1 X120.632 Y100.632 E.2957  ;Modified
 G1 X129.368 Y100.632 E.2957  ;Modified
 G1 X129.368 Y109.308 E.29367  ;Modified
 M204 P1000
-G1 X129.775 Y109.775 F15600.0  ;Modified
+G1 X129.775 Y109.775 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1950.0  ;Modified
@@ -10994,17 +10994,17 @@ G1 X120.225 Y100.225 E.32326  ;Modified
 G1 X129.775 Y100.225 E.32326  ;Modified
 G1 X129.775 Y109.715 E.32122  ;Modified
 M204 P1000
-G1 X129.389 Y109.671 F15600.0  ;Modified
-G1 E-.64 F2730.0  ;Modified
+G1 X129.389 Y109.671 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12480.0  ;Modified
 G1 X129.044 Y109.72 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2730.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10.2 F936.0  ;Modified
-G1 X122.392 Y102.382 F15600.0  ;Modified
+G1 X122.392 Y102.382 F12000  ;Modified
 G1 Z10 F936.0  ;Modified
-G1 E.8 F1950.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P900
 ;TYPE:Perimeter
 G1 X122.459 Y102.151 E.00817  ;Modified
@@ -11041,7 +11041,7 @@ G1 X122.365 Y103.544 E.00358  ;Modified
 G1 X122.365 Y102.477 E.03612  ;Modified
 G1 X122.376 Y102.44 E.00129  ;Modified
 M204 P1000
-G1 X122.772 Y102.477 F15600.0  ;Modified
+G1 X122.772 Y102.477 F12000  ;Modified
 M204 P700
 ;TYPE:External perimeter
 G1 F1950.0  ;Modified
@@ -11074,8 +11074,8 @@ G1 X122.817 Y103.672 E.11048  ;Modified
 G1 X122.772 Y103.544 E.0046  ;Modified
 G1 X122.772 Y102.537 E.03409  ;Modified
 M204 P1000
-G1 X122.685 Y102.404 F15600.0  ;Modified
-G1 E-.64 F2730.0  ;Modified
+G1 X122.685 Y102.404 F12000  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12480.0  ;Modified
 G1 X122.803 Y102.368 E-.03565  ;Modified
@@ -11083,268 +11083,268 @@ G1 X122.94 Y102.276 E-.03426  ;Modified
 G1 X122.976 Y102.273 E-.00734  ;Modified
 G1 X123.335 Y102.273 E-.07475  ;Modified
 ;WIPE_END
-G1 E-.008 F2730.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10.2 F936.0  ;Modified
-G1 X128.355 Y109.185 F15600.0  ;Modified
+G1 X128.355 Y109.185 F12000  ;Modified
 G1 Z10 F936.0  ;Modified
-G1 E.8 F1950.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P800
 ;TYPE:Top solid infill
 ;WIDTH:0.453051
 G1 F3120.0  ;Modified
 G1 X129.185 Y108.355 E.04  ;Modified
 M204 P1000
-G1 X129.185 Y107.775 F15600.0  ;Modified
+G1 X129.185 Y107.775 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.775 Y109.185 E.06797  ;Modified
 M204 P1000
-G1 X127.195 Y109.185 F15600.0  ;Modified
+G1 X127.195 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y107.195 E.09595  ;Modified
 M204 P1000
-G1 X129.185 Y106.615 F15600.0  ;Modified
+G1 X129.185 Y106.615 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X126.615 Y109.185 E.12392  ;Modified
 M204 P1000
-G1 X126.035 Y109.185 F15600.0  ;Modified
+G1 X126.035 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X126.902 Y108.318 E.04179  ;Modified
 M204 P1000
-G1 X126.322 Y108.318 F15600.0  ;Modified
+G1 X126.322 Y108.318 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X125.455 Y109.185 E.04179  ;Modified
 M204 P1000
-G1 X124.875 Y109.185 F15600.0  ;Modified
+G1 X124.875 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X125.742 Y108.318 E.04179  ;Modified
 M204 P1000
-G1 X125.162 Y108.318 F15600.0  ;Modified
+G1 X125.162 Y108.318 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X124.295 Y109.185 E.04179  ;Modified
 M204 P1000
-G1 X123.715 Y109.185 F15600.0  ;Modified
+G1 X123.715 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X124.582 Y108.318 E.04179  ;Modified
 M204 P1000
-G1 X124.002 Y108.318 F15600.0  ;Modified
+G1 X124.002 Y108.318 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X123.135 Y109.185 E.04179  ;Modified
 M204 P1000
-G1 X122.555 Y109.185 F15600.0  ;Modified
+G1 X122.555 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X123.422 Y108.318 E.04179  ;Modified
 M204 P1000
-G1 X122.927 Y108.233 F15600.0  ;Modified
+G1 X122.927 Y108.233 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X121.975 Y109.185 E.0459  ;Modified
 M204 P1000
-G1 X121.395 Y109.185 F15600.0  ;Modified
+G1 X121.395 Y109.185 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.59 Y107.99 E.05761  ;Modified
 M204 P1000
-G1 X122.415 Y107.585 F15600.0  ;Modified
+G1 X122.415 Y107.585 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y109.185 E.07716  ;Modified
 M204 P1000
-G1 X120.815 Y108.605 F15600.0  ;Modified
+G1 X120.815 Y108.605 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.41 Y107.01 E.0769  ;Modified
 M204 P1000
-G1 X122.41 Y106.43 F15600.0  ;Modified
+G1 X122.41 Y106.43 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y108.025 E.0769  ;Modified
 M204 P1000
-G1 X120.815 Y107.445 F15600.0  ;Modified
+G1 X120.815 Y107.445 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X123.19 Y105.07 E.11452  ;Modified
 M204 P1000
-G1 X122.93 Y104.75 F15600.0  ;Modified
+G1 X122.93 Y104.75 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y106.865 E.102  ;Modified
 M204 P1000
-G1 X120.815 Y106.285 F15600.0  ;Modified
+G1 X120.815 Y106.285 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.671 Y104.429 E.08949  ;Modified
 M204 P1000
-G1 X122.411 Y104.108 F15600.0  ;Modified
+G1 X122.411 Y104.108 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y105.705 E.07698  ;Modified
 M204 P1000
-G1 X120.815 Y105.125 F15600.0  ;Modified
+G1 X120.815 Y105.125 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.215 Y103.725 E.06749  ;Modified
 M204 P1000
-G1 X122.182 Y103.178 F15600.0  ;Modified
+G1 X122.182 Y103.178 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y104.545 E.0659  ;Modified
 M204 P1000
-G1 X120.815 Y103.965 F15600.0  ;Modified
+G1 X120.815 Y103.965 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.182 Y102.598 E.0659  ;Modified
 M204 P1000
-G1 E-.64 F2730.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12480.0  ;Modified
 G1 X121.665 Y103.115 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2730.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10.2 F936.0  ;Modified
-G1 X127.731 Y107.489 F15600.0  ;Modified
+G1 X127.731 Y107.489 F12000  ;Modified
 G1 Z10 F936.0  ;Modified
-G1 E.8 F1950.0  ;Modified
+G1 E.8 F1500  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y106.035 E.0701  ;Modified
 M204 P1000
 M73 P98 R0
-G1 X129.185 Y105.455 F15600.0  ;Modified
+G1 X129.185 Y105.455 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.731 Y106.909 E.0701  ;Modified
 M204 P1000
-G1 X127.687 Y106.373 F15600.0  ;Modified
+G1 X127.687 Y106.373 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y104.875 E.07223  ;Modified
 M204 P1000
-G1 X129.185 Y104.295 F15600.0  ;Modified
+G1 X129.185 Y104.295 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.523 Y105.957 E.08012  ;Modified
 M204 P1000
-G1 X127.264 Y105.636 F15600.0  ;Modified
+G1 X127.264 Y105.636 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y103.715 E.09263  ;Modified
 M204 P1000
-G1 X129.185 Y103.135 F15600.0  ;Modified
+G1 X129.185 Y103.135 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.005 Y105.315 E.10514  ;Modified
 M204 P1000
-G1 X126.745 Y104.995 F15600.0  ;Modified
+G1 X126.745 Y104.995 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y102.555 E.11765  ;Modified
 M204 P1000
-G1 X129.185 Y101.975 F15600.0  ;Modified
+G1 X129.185 Y101.975 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.818 Y103.342 E.0659  ;Modified
 M204 P1000
-G1 X127.818 Y102.762 F15600.0  ;Modified
+G1 X127.818 Y102.762 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X129.185 Y101.395 E.0659  ;Modified
 M204 P1000
-G1 X129.185 Y100.815 F15600.0  ;Modified
+G1 X129.185 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.751 Y102.248 E.06912  ;Modified
 M204 P1000
-G1 X127.529 Y101.891 F15600.0  ;Modified
+G1 X127.529 Y101.891 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X128.605 Y100.815 E.05188  ;Modified
 M204 P1000
-G1 X128.025 Y100.815 F15600.0  ;Modified
+G1 X128.025 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.128 Y101.712 E.04325  ;Modified
 M204 P1000
-G1 X126.577 Y101.683 F15600.0  ;Modified
+G1 X126.577 Y101.683 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X127.445 Y100.815 E.04184  ;Modified
 M204 P1000
-G1 X126.865 Y100.815 F15600.0  ;Modified
+G1 X126.865 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X125.997 Y101.683 E.04184  ;Modified
 M204 P1000
-G1 X125.417 Y101.683 F15600.0  ;Modified
+G1 X125.417 Y101.683 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X126.285 Y100.815 E.04184  ;Modified
 M204 P1000
-G1 X125.705 Y100.815 F15600.0  ;Modified
+G1 X125.705 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X124.837 Y101.683 E.04184  ;Modified
 M204 P1000
-G1 X124.257 Y101.683 F15600.0  ;Modified
+G1 X124.257 Y101.683 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X125.125 Y100.815 E.04184  ;Modified
 M204 P1000
-G1 X124.545 Y100.815 F15600.0  ;Modified
+G1 X124.545 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X123.677 Y101.683 E.04184  ;Modified
 M204 P1000
-G1 X123.097 Y101.683 F15600.0  ;Modified
+G1 X123.097 Y101.683 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X123.965 Y100.815 E.04184  ;Modified
 M204 P1000
-G1 X123.385 Y100.815 F15600.0  ;Modified
+G1 X123.385 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y103.385 E.12391  ;Modified
 M204 P1000
-G1 X120.815 Y102.805 F15600.0  ;Modified
+G1 X120.815 Y102.805 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X122.805 Y100.815 E.09594  ;Modified
 M204 P1000
-G1 X122.225 Y100.815 F15600.0  ;Modified
+G1 X122.225 Y100.815 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X120.815 Y102.225 E.06797  ;Modified
 M204 P1000
-G1 X120.815 Y101.645 F15600.0  ;Modified
+G1 X120.815 Y101.645 F12000  ;Modified
 M204 P800
 G1 F3120.0  ;Modified
 G1 X121.645 Y100.815 E.03999  ;Modified
 M204 P1000
 ; stop printing object xyz-10mm-calibration-cube.stl id:0 copy 0
-G1 E-.64 F2730.0  ;Modified
+G1 E-.64 F2100  ;Modified
 ;WIPE_START
 G1 F12480.0  ;Modified
 G1 X121.127 Y101.332 E-.152  ;Modified
 ;WIPE_END
-G1 E-.008 F2730.0  ;Modified
+G1 E-.008 F2100  ;Modified
 G1 Z10.2 F936.0  ;Modified
 M107
 ;TYPE:Custom
 ; Filament-specific end gcode
 G1 Z11.2 F936.0 ; Move print head up  ;Modified
-M104 s230.0 ; turn off temperature
+M104 S0 ; turn off temperature  ;Modified
 M140 S0 ; turn off heatbed
 M107 ; turn off fan
-G1 X241 Y170 F4680.0 ; park  ;Modified
+G1 X241 Y170 F3600 ; park  ;Modified
 G1 Z33.2 F390.0 ; Move print head up  ;Modified
 G4 ; wait
 M900 K0 ; reset LA
