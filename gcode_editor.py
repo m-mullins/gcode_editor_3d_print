@@ -54,7 +54,11 @@ def extract_values_from_file(file_name):
                 phase_number = int(phase_key.split('Phase ')[1].split(' (')[0])
 
                 # Append phase number and value to array
-                phase_values.append((phase_number, float(phase_value)))
+                try:
+                    tmp = float(phase_value)
+                    phase_values.append((phase_number, tmp))
+                except ValueError:
+                    phase_values.append((phase_number, phase_value))
 
         # Append array to list of arrays
         extracted_data.append(np.array(phase_values))
@@ -190,12 +194,12 @@ def modify_speed(modified_line_parts, parameter_array, phase_num, phase_pct):
                 modified_line_parts[i] = "F" + str(new_speed)
 
 
-def modify_temperature(line, parameter_array, phase_num, phase_pct):
+def modify_temperature(modified_line_parts, parameter_array, phase_num, phase_pct):
     """Modify temperature inside a G code line according to user parameters
 
     Parameters
     ----------
-    line : A string which represents a G code line
+    modified_line_parts : A split G code string
     parameter_array : user parameters in the form of a list of np arrays
     phase_num : The number of the current phase
     phase_pct : the current height vs total part height in percent
@@ -206,8 +210,6 @@ def modify_temperature(line, parameter_array, phase_num, phase_pct):
 
     """
 
-    new_line = line
-
     # Check if we are not in phase 0
     if phase_num > 0:
 
@@ -217,12 +219,11 @@ def modify_temperature(line, parameter_array, phase_num, phase_pct):
         new_temp = (temp_end - temp_start) * phase_pct + temp_start
 
         # Apply new temp to line
-        if line.startswith("M104"):
-            new_line = re.sub(r'[S]\d+', f's{new_temp}', line)
+        if modified_line_parts[0].startswith("M104"):
+            re.sub(r'[S]\d+', f's{new_temp}', modified_line_parts[1])
         else:  # M109
-            new_line = re.sub(r'[R]\d+', f'R{new_temp}', line)
+            re.sub(r'[R]\d+', f'R{new_temp}', modified_line_parts[1])
 
-    return new_line
 
 def modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num, phase_pct):
     """Modify the extrusion amounts inside a G code line according to user parameters, according speed and temperature
@@ -259,7 +260,8 @@ def modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num, ph
     # Return modified line
     return new_line
 
-def shift_position(modified_line_parts, parameter_array, phase_num, phase_pct):
+
+def shift_position(modified_line_parts, parameter_array, phase_num):
     """Shift the part position in the X and Y axes according to user parameters
 
     Parameters
@@ -276,7 +278,8 @@ def shift_position(modified_line_parts, parameter_array, phase_num, phase_pct):
     """
 
     # Extract the X and Y shift value for the current phase
-    shift_values = parameter_array[4][phase_num].split(" et ")
+
+    shift_values = parameter_array[4][phase_num][1].split(";")
     shift_x = float(shift_values[0].split("=")[1])
     shift_y = float(shift_values[1].split("=")[1])
 
@@ -294,6 +297,7 @@ def shift_position(modified_line_parts, parameter_array, phase_num, phase_pct):
 
     # Return modified line
     return new_line
+
 
 def get_coordinate(line):
     """Get coordinate X, Y from G code line
@@ -498,11 +502,17 @@ def gcode_editor(gcode_file_path, parameter_file_path):
 
                     # ********************************* Apply line modifications here *********************************
 
-                    # Apply temperature modifications
-                    modified_line = modify_temperature(line, parameter_array, phase_num, phase_pct)
+                    # Convert line to a list
+                    modified_line_parts = line.split()
 
                     # Tag line modified by our gcode editor
-                    tag_modified_line(modified_line)
+                    tag_modified_line(modified_line_parts)
+
+                    # Apply temperature modifications
+                    modify_temperature(modified_line_parts, parameter_array, phase_num, phase_pct)
+
+                    # Reformat line to text
+                    modified_line = " ".join(modified_line_parts)
 
                 # G1 E (modify temperature, speed, extrusion amount and position if line contains gcode "G1 E")
                 if line.startswith("G1 E"):
