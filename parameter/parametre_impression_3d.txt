@@ -58,3 +58,8 @@ Phase 002 (mm) : X=-3 ; Y=-4
 Phase 003 (mm) : X=6 ; Y=5
 
 ------------------------------------------------------------------
+
+5) Activer le réchauffement de la dernière couche avant d'imprimer
+la suivante. 1 = True (Activer) et 0 = False (Désactiver)
+
+Heating : 1
