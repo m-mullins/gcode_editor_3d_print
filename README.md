@@ -139,19 +139,22 @@ compte ces deux autres données dans votre choix pour le paramétrage de l'extru
 
 Exemple :
 `````text
-En attente
+Phase 000 (%) : 80
+Phase 001 (%) : 90
+Phase 002 (%) : 110
+Phase 003 (%) : 120
 `````
   
 #### Décaler la position
 
 On décrit ici le décalage de la pièce sur le lit selon les axes X et Y de la tête d'extrusion, c'est-à-dire sur le 
 plan horizontal. Ces décalages doivent correspondre à des variations en millimètres. Cette variation n'est pas associée à une
-phase, mais à l'ensemble de la pièce. Toutes les instructions de G-code seront ajustées pour permettre le décalage de la 
+phase, mais à l'ensemble de la pièce sur le lit. Toutes les instructions de G-code seront ajustées pour permettre le décalage de la 
 pièce.
 
 Exemple :
 ````text
-En attente
+Phase 000 (mm) : X=2 ; Y=3
 ````
 
 

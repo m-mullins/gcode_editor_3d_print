@@ -250,9 +250,9 @@ def modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num, ph
 
     # Modify the extrusion amounts for each line to be modified (for gcode line with "G1 E")
     for i in range(1, len(modified_line_parts)):
-        if modified_line_parts[i].startswith("G1 E"):
+        if modified_line_parts[i].startswith("E"):
             extrusion_value = float(modified_line_parts[i][1:])
-            modified_line_parts[i] = "G1 E" + str(extrusion_value * extrusion_mod_pct / 100)
+            modified_line_parts[i] = "E" + str(extrusion_value * extrusion_mod_pct / 100)
 
     # Reformat line to text
     new_line = " ".join(modified_line_parts)
@@ -269,7 +269,6 @@ def shift_position(modified_line_parts, parameter_array, phase_num):
     modified_line_parts : A string which represents a G code line already modified
     parameter_array : user parameters in the form of a list of np arrays, contains the X and Y values to shift position
     phase_num : The number of the current phase
-    phase_pct : the current height vs total part height in percent
 
     Returns
     -------
@@ -285,12 +284,12 @@ def shift_position(modified_line_parts, parameter_array, phase_num):
 
     # Apply the shift by adding the shift value on X and Y line coordinates
     for i in range(len(modified_line_parts)):
-        if modified_line_parts[i].startswith("G1 X"):
+        if modified_line_parts[i].startswith("X"):
             x_value = float(modified_line_parts[i][1:])
-            modified_line_parts[i] = "G1 X" + str(x_value + shift_x)
-        elif modified_line_parts[i].startswith("G1 Y"):
+            modified_line_parts[i] = "X" + str(x_value + shift_x)
+        elif modified_line_parts[i].startswith("Y"):
             y_value = float(modified_line_parts[i][1:])
-            modified_line_parts[i] = "G1 Y" + str(y_value + shift_y)
+            modified_line_parts[i] = "Y" + str(y_value + shift_y)
 
     # Reformat line to text
     new_line = " ".join(modified_line_parts)
@@ -494,6 +493,19 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     if external_coord and (coord := get_coordinate(line)):  # Opérateur de Walrus
                         data_coord.append(coord)
 
+                    # G1 E (modify temperature, speed, extrusion amount and position if line contains gcode "G1 E")
+                    # ********************************* Apply line modifications here *********************************
+
+                    # Apply extrusion amounts modification
+                    modified_line = modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num,
+                                                                     phase_pct)
+
+                    # G1 X/Y (modify X and Y axes position according shifting value)
+                    # ********************************* Apply line modifications here *********************************
+
+                    # Apply the position modification
+                    modified_line = shift_position(modified_line, parameter_array, phase_num)
+
                 # M104 or M109
                 if line.startswith(("M104", "M109")):
 
@@ -511,34 +523,6 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     # Reformat line to text
                     modified_line = " ".join(modified_line_parts)
 
-                # G1 E (modify temperature, speed, extrusion amount and position if line contains gcode "G1 E")
-                if line.startswith("G1 E"):
-
-                    # ********************************* Apply line modifications here *********************************
-
-                    # Convert line to a list
-                    modified_line_parts = line.split()
-
-                    # Tag line modified by our gcode editor
-                    tag_modified_line(modified_line_parts)
-
-                    # Apply extrusion amounts modification
-                    modified_line = modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num,
-                                                             phase_pct)
-
-                # G1 X/Y (modify X and Y axes position according shifting value)
-                if line.startswith(("G1 X", "G1 Y")):
-
-                    # ********************************* Apply line modifications here *********************************
-
-                    # Convert line to a list
-                    modified_line_parts = line.split()
-
-                    # Tag line modified by our gcode editor
-                    tag_modified_line(modified_line_parts)
-
-                    # Apply the position modification
-                    modified_line = shift_position(modified_line_parts, parameter_array, phase_num)
 
             # Write the modified lines to the output file
             output_file.write(modified_line)
