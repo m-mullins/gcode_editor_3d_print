@@ -493,19 +493,18 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     if external_coord and (coord := get_coordinate(line)):  # Opérateur de Walrus
                         data_coord.append(coord)
 
-                        # G1 E (modify temperature, speed, extrusion amount and position if line contains gcode "G1 E")
-                        # ********************************* Apply line modifications here *********************************
+                    # G1 E (modify temperature, speed, extrusion amount and position if line contains gcode "G1 E")
+                    # ********************************* Apply line modifications here *********************************
 
-
-                        # Apply extrusion amounts modification
-                        modified_line = modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num,
+                    # Apply extrusion amounts modification
+                    modified_line = modify_extrusion_amounts(modified_line_parts, parameter_array, phase_num,
                                                                      phase_pct)
 
-                        # G1 X/Y (modify X and Y axes position according shifting value)
-                        # ********************************* Apply line modifications here *********************************
+                    # G1 X/Y (modify X and Y axes position according shifting value)
+                    # ********************************* Apply line modifications here *********************************
 
-                        # Apply the position modification
-                        modified_line = shift_position(modified_line, parameter_array, phase_num)
+                    # Apply the position modification
+                    modified_line = shift_position(modified_line, parameter_array, phase_num)
 
                 # M104 or M109
                 if line.startswith(("M104", "M109")):
