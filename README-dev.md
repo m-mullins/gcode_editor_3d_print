@@ -18,7 +18,7 @@ modules utilisés et leur version.
 `numpy 1.24.3`
 
 ## Description du projet :
-Le code "gcode_editor.py" est un utilitaire Python permettant de modifier et de manipuler des fichiers G-code utilisés 
+Le code `gcode_editor.py` est un script Python permettant de modifier et de manipuler des fichiers G-code utilisés 
 dans l'impression 3D. Il prend en entrée un fichier G-code et un fichier de paramètres utilisateur, et effectue 
 différentes modifications sur le G-code en fonction des paramètres spécifiés par l'utilisateur.
 
@@ -28,20 +28,21 @@ Le dossier du projet est organisé de la manière suivante :
 ````graphql
 └──gcode_editor/
   ├─ input/ - # Dossier où ranger les fichiers G-code à éditer
-  │  └─ xyz-10mm...
+  │  └─ xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode
   ├─ output/ - # Dossier où seront rangés les nouveaux fichiers G-code après avoir été édité
   ├─ parameter/ - # Dossier où ranger les fichiers de paramètres
-  │  └─ parametre...
+  │  └─ parametre_impression_3d.txt
   ├─ README.md - # Fichier README
   ├─ readme/
   │  └─ README-dev.md - # Fichier README destiné aux développeurs
   │  └─ README-dev-en.md - # Fichier README destiné aux développeurs version anglaise
+  │  └─ README.md - # Fichier README
   │  └─ README-en.md - # Fichier README version anglaise
   ├─ requirements.txt
   └─ xyz-10mm-calibration-cube.stl - # Objet 3D utilisé comme exemple
 ````
 
-### Les fichier important pour les développeurs :
+### Les fichiers importants pour les développeurs :
 - `gcode_editor.py` : Le fichier principal contenant le code source.
 - `parametre_impression_3d.txt` : Le fichier de paramètres utilisé pour définir les modifications à apporter au G-code.
 Pour comprendre comment s'articule ce fichier et la manière dont il doit être modifié par l'utilisateur, réfèrez-vous 
@@ -54,24 +55,29 @@ la fonction principale `gcode_editor()`. Les fonctions de modification du G-code
 
 1. Lecture des fichiers d'entrée : 
    - `find_layer_info()` : lit le fichier G-code spécifié en entrée pour obtenir les informations liées aux couches.
-   - `extract_values_from_file()` : lit le fichier de paramètre `parametre_impression_3d.txt` et récupère les paramètres que l'utilisateur souhaite
-   modifier dans le G-code original.
+   - `extract_values_from_file()` : lit le fichier de paramètre `parametre_impression_3d.txt` et récupère les 
+   paramètres que l'utilisateur souhaite modifier dans le G-code original.
+
 2. Parcours des lignes de code G-code :
    - itère sur chaque ligne du G-code pour les traiter une par une.
+
 3. Détermination de la phase en cours :
-   - `find_phase()` : identifie la phase en cours de traitement en se basant sur les pourcentages définis dans le fichier de paramètres.
-   - `get_current_phase()` : pour déterminer la phase actuelle en fonction du pourcentage de 
-   progression dans le G-code.
-4. Modification de la température d'impression :
-   - appel de la fonction `modify_temperature()`
-5. Modification de la vitesse d'impression :
-   - appel de la fonction `modify_speed()`
-6. Sur ou sous extruder d'un certain pourcentage de manière variable :
-   - appel de la fonction `modify_extrusion_amounts()` 
-7. Décalage de la position de la pièce en X et en Y sur le lit :
-   - appel de la fonction `shift_position()` 
-8. (...) Ajouter les fonctions pour la tâche optionnelle (Léo)
-9. Écriture du G-code modifié :
+   - `find_phase()` : identifie la phase en cours de traitement en se basant sur les pourcentages définis dans le 
+   fichier de paramètres.
+   - `get_current_phase()` : pour déterminer la phase actuelle en fonction du pourcentage de progression dans le G-code.
+
+4. Exécution des modifications souhaité par l'utilisateur sur le G-code 
+   - Modification de la température d'impression : appel de la fonction `modify_temperature(...)`
+   
+   ET/OU
+   - Modification de la vitesse d'impression : appel de la fonction `modify_speed(...)`
+   - Sur ou sous extruder : appel de la fonction `modify_extrusion_amounts(...)`
+   - Décalage de la position de la pièce en X et en Y sur le lit : appel de la fonction `shift_position(...)`
+
+5. Exécution de la phase de réchauffement d'une couche 
+   - (...) Ajouter les fonctions pour la tâche optionnelle (Léo)
+
+6. Écriture du G-code modifié :
    - Après avoir traité toutes les lignes du G-code, le script écrit les lignes modifiées dans un nouveau fichier avec 
    le préfixe "modified-" ajouté au nom d'origine du fichier G-code. 
 
@@ -111,7 +117,7 @@ les instructions G-code afin de réaliser les tâches suivantes:
      - Retour : La ligne du G-code modifiée.
 
 3. Sur ou sous extruder d'un certain pourcentage de manière variable :
-   - `modify_quantity_extrusion(line, parameter_array, phase_num, phase_pct)` :
+   - `modify_extrusion_amounts(line, parameter_array, phase_num, phase_pct)` :
      - But : ajuster la quantité de matériau extrudé en fonction de la vitesse d'impression et de la température dans 
      une plage spécifiée par les phases et les pourcentages du fichier de paramètres. Cela permet un contrôle précis 
      de l'extrusion.
@@ -125,20 +131,21 @@ les instructions G-code afin de réaliser les tâches suivantes:
 4. Décalage de la position de la pièce en X et en Y sur le lit :
    - `shift_position(line, parameter_array, phase_num, phase_pct)` :
      - But : décaler la position de la pièce en ajoutant une valeur spécifiée en millimètres à ses coordonnées X et Y, 
-     selon les phases et les valeurs spécifiées dans le fichier de paramètres. Cela permet de régler précisément 
+     sur le lit, c'est-à-dire dès le début d'impression (phase initiale). Cela permet de régler précisément 
      l'emplacement de la pièce sur le lit du plateau d'impression. Cette fonction prend la ligne en cours de traitement, 
-     la liste des paramètres de modification, le numéro de la phase initiale (sur le lit) et retourne la ligne modifiée.
+     la liste des paramètres de modification, le numéro de la phase initiale et retourne la ligne modifiée.
      - Arguments :
        - line (str) : Une ligne du G-code à modifier.
        - parameter_array (list) : Liste des paramètres de modification spécifiés dans le fichier de paramètres.
        - phase_num (int) : Numéro de la phase en cours de traitement.
      - Retour : La ligne du G-code modifiée.
 
-5. Ajouter tâche optionnelle (Léo)
+5. Phase de réchauffemment d'une couche
+   - (Léo)
 
 ## Notes supplémentaires :
-- Assurez-vous que les lignes du fichier de paramètres correspondent aux phases et pourcentages définis dans le G-code, 
-sinon les modifications ne seront pas appliquées correctement.
+- S'assurer que les lignes du fichier de paramètres `parametre_impression_3d.txt` correspondent aux phases et aux 
+pourcentages définis dans le G-code, sinon les modifications ne seront pas appliquées correctement.
 - Le code est structuré et modulaire, facilitant l'ajout de nouvelles fonctionnalités ou la modification des 
-fonctionnalités existantes.
+fonctionnalités existantes dans `gcode_editor.py`.
 - Pour toute question ou suggestion d'amélioration, n'hésitez pas à contacter l'équipe de développement.

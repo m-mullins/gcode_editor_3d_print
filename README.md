@@ -36,14 +36,15 @@ Vous devriez alors avoir le dossier gcode_editor qui suit :
 ````graphql
 └──gcode_editor/
   ├─ input/ - # Dossier où ranger les fichiers G-code à éditer
-  │  └─ xyz-10mm...
+  │  └─ xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode
   ├─ output/ - # Dossier où seront rangés les nouveaux fichiers G-code après avoir été édité
   ├─ parameter/ - # Dossier où ranger les fichiers de paramètres
-  │  └─ parametre...
+  │  └─ parametre_impression_3d.txt
   ├─ README.md - # Fichier README
   ├─ readme/
   │  └─ README-dev.md - # Fichier README destiné aux développeurs
   │  └─ README-dev-en.md - # Fichier README destiné aux développeurs version anglaise
+  │  └─ README.md - # Fichier README
   │  └─ README-en.md - # Fichier README version anglaise
   ├─ requirements.txt
   └─ xyz-10mm-calibration-cube.stl - # Objet 3D utilisé comme exemple
