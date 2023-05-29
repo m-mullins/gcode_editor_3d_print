@@ -53,14 +53,14 @@ la fonction principale `gcode_editor()`. Les fonctions de modification du G-code
 [Tâches implémentées pour la modification du G-code :](#Tâches_implémentées_pour_la_modification_du_G-code_:)
 
 1. Lecture des fichiers d'entrée : 
-   - lit le fichier G-code spécifié en entrée pour obtenir les lignes G-code.
-   - lit le fichier de paramètre `parametre_impression_3d.txt` et récupère les paramètres que l'utilisateur souhaite
+   - `find_layer_info()` : lit le fichier G-code spécifié en entrée pour obtenir les informations liées aux couches.
+   - `extract_values_from_file()` : lit le fichier de paramètre `parametre_impression_3d.txt` et récupère les paramètres que l'utilisateur souhaite
    modifier dans le G-code original.
 2. Parcours des lignes de code G-code :
    - itère sur chaque ligne du G-code pour les traiter une par une.
 3. Détermination de la phase en cours :
-   - identifie la phase en cours de traitement en se basant sur les pourcentages définis dans le fichier de paramètres.
-   - utilise la fonction `get_current_phase(`) pour déterminer la phase actuelle en fonction du pourcentage de 
+   - `find_phase()` : identifie la phase en cours de traitement en se basant sur les pourcentages définis dans le fichier de paramètres.
+   - `get_current_phase()` : pour déterminer la phase actuelle en fonction du pourcentage de 
    progression dans le G-code.
 4. Modification de la température d'impression :
    - appel de la fonction `modify_temperature()`
@@ -70,8 +70,8 @@ la fonction principale `gcode_editor()`. Les fonctions de modification du G-code
    - appel de la fonction `modify_extrusion_amounts()` 
 7. Décalage de la position de la pièce en X et en Y sur le lit :
    - appel de la fonction `shift_position()` 
-9. (...) Ajouter les fonctions pour la tâche optionnelle (Léo)
-8. Écriture du G-code modifié :
+8. (...) Ajouter les fonctions pour la tâche optionnelle (Léo)
+9. Écriture du G-code modifié :
    - Après avoir traité toutes les lignes du G-code, le script écrit les lignes modifiées dans un nouveau fichier avec 
    le préfixe "modified-" ajouté au nom d'origine du fichier G-code. 
 
