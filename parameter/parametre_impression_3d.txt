@@ -1,11 +1,6 @@
-Ce fichier permet à l'utilisateur d'entrer les paramètres qui vont modifier le code G.
-
-------------------------------------------------------------------
-
-0) Identification des phases
-Entrez la valeur en % à laquelle fini la phase. 
-Ajouter des lignes au besoin en fonction du nombre de phases voulue.
-La dernière phase doit être 100 %.
+# 0) Identification des phases : Entrez la valeur en % à laquelle fini la phase.
+# Ajouter des lignes au besoin en fonction du nombre de phases voulue.
+# La première phase doit être à 0 % et la dernière phase doit être 100 %.
 
 Phase 000 (%) : 0
 Phase 001 (%) : 20
@@ -14,8 +9,8 @@ Phase 003 (%) : 100
 
 ------------------------------------------------------------------
 
-1) Modification de la température d'impression de manière variable
-Entrez la température en deg C à laquelle fini la phase.
+# 1) Modification de la température d'impression de manière variable.
+# Entrez la température en deg C à laquelle fini la phase.
 
 Phase 000 (deg C) : 180
 Phase 001 (deg C) : 190
@@ -24,9 +19,9 @@ Phase 003 (deg C) : 230
 
 ------------------------------------------------------------------
 
-2) Modification de la vitesse d'impression de manière variable.
-Entrez la modification de vitesse en % à laquelle fini la phase.
-Une valeur de 100% indique que la vitesse n'est pas modifiée.
+# 2) Modification de la vitesse d'impression de manière variable.
+# Entrez la modification de vitesse en % à laquelle fini la phase.
+# Une valeur de 100% indique que la vitesse n'est pas modifiée.
 
 Phase 000 (%) : 90
 Phase 001 (%) : 100
@@ -35,11 +30,9 @@ Phase 003 (%) : 130
 
 ------------------------------------------------------------------
 
-3) Sur ou sous extruder de manière variable.
-Entrez la quantité en % de matériau estrudé (volume) linéaire 
-à laquelle fini la phase.
-Cette quantité est modifiée en fonction de la vitesse (point 2)
-et de la température (point 1) d'impression.
+# 3) Sur ou sous extruder de manière variable.
+# Entrez la quantité en % de matériau estrudé (volume) linéaire à laquelle fini la phase.
+# Cette quantité est modifiée en fonction de la vitesse (point 2) et de la température (point 1) d'impression.
 
 Phase 000 (%) : 80
 Phase 001 (%) : 90
@@ -48,9 +41,8 @@ Phase 003 (%) : 120
 
 ------------------------------------------------------------------
 
-4) Décalage de la position de la pièce en X et Y sur le lit.
-Entrez la longeur en mm pour l'axe X et Y afin de décaler la 
-pièce de cette distance.
+# 4) Décalage de la position de la pièce en X et Y sur le lit.
+# Entrez la longeur en mm pour l'axe X et Y afin de décaler la pièce de cette distance.
 
 Phase 000 (mm) : X=2 ; Y=3
 Phase 001 (mm) : X=-2 ; Y=-3
@@ -59,7 +51,7 @@ Phase 003 (mm) : X=6 ; Y=5
 
 ------------------------------------------------------------------
 
-5) Activer le réchauffement de la dernière couche avant d'imprimer
-la suivante. 1 = True (Activer) et 0 = False (Désactiver)
+# 5) Activer le réchauffement de la dernière couche avant d'imprimer la suivante.
+# 1 = True (Activer) et 0 = False (Désactiver)
 
-Heating : 1
+Heating 0 : 1

@@ -28,8 +28,6 @@ def extract_values_from_file(file_name):
     # Initialize extracted parameters
     extracted_data = []
 
-    phase_number = 0
-
     # Iterate through each section of parameter
     for section in sections:
         # Split each section in multiple lines and remove leading/trailing whitespaces
@@ -37,36 +35,48 @@ def extract_values_from_file(file_name):
         phase_lines = [line.strip() for line in phase_lines if line.strip()]
 
         # Initialise list
-        phase_values = []
+        values = []
 
         # Extract the data for each line that starts with "Phase"
         for line in phase_lines:
-            if line.startswith('Phase'):
 
+            if line.startswith('#'):
+                # Comment line. Skip
+                continue
+            else:
                 # Split the line in multiple parts
-                phase_parts = line.split(':')
+                line_parts = line.split(':')
+                key = line_parts[0]
+                value = line_parts[1]
 
-                # Remove leading/trailing whitespaces on both parts
-                phase_key = phase_parts[0].strip()
-                phase_value = phase_parts[1].strip()
+                # Parameter associated to a phase
+                if line.startswith('Phase'):
 
-                # Extract the number of phases
-                phase_number = int(phase_key.split('Phase ')[1].split(' (')[0])
+                    # Extract the number of phases (if present)
+                    phase_number = int(key.split(' ')[1])
 
-                # Append phase number and value to array
-                try:
-                    tmp = float(phase_value)
-                    phase_values.append((phase_number, tmp))
-                except ValueError:
-                    phase_values.append((phase_number, phase_value))
+                    # Append phase number and value to array
+                    try:    # sans doute non nécessaire. attente du format de parametre pour shift position
+                        tmp = float(value)
+                        values.append((phase_number, tmp))
+                    except ValueError:
+                        # It means we don't have single value (for instance a pair of offset)
+                        values.append((phase_number, value))
+
+                # Global parameter used for the whole workpiece.
+                else:
+                    # Append phase number and value to array
+                    try:
+                        tmp = float(value)
+                        values.append(tmp)
+                    except ValueError:
+                        # It means we don't have single value (for instance a pair of offset)
+                        values.append(value)
 
         # Append array to list of arrays
-        extracted_data.append(np.array(phase_values))
+        extracted_data.append(np.array(values))
 
-    # Remove the first empty section
-    extracted_data.pop(0)
-
-    return extracted_data, phase_number
+    return extracted_data
 
 
 def find_layer_info(gcode_file):
@@ -84,8 +94,8 @@ def find_layer_info(gcode_file):
     """
 
     # Initialize variables
-    layer_height = None
-    total_height = None
+    layer_height = 0
+    total_height = 0
     layer_count = 0
 
     # Open gcode and read each line individually
@@ -122,36 +132,26 @@ def find_phase(height_pct, parameter_array):
     """
 
     # Calculate number of phases
-    num_phases = len(parameter_array)
-
-    # Initialize phase counter
-    phase_counter = 1
+    num_phases = len(parameter_array[0])
 
     # Iterate through the phases
-    for i in range(num_phases):
-        phase_counter = i + 1
-        phase_data = parameter_array[0]
+    phase_data = parameter_array[0]
 
-        # # Check if it's the last phase
-        # if phase_counter == num_phases:
-        #     phase_pct = 100.0
-        #     return phase_counter, phase_pct
+    # Initialize variables
+    phase_counter, phase_pct = 0, 0
+
+    for i in range(1, num_phases):
 
         # Get the start and end percentages for the current phase
-        phase_start = phase_data[phase_counter-1, 1]
-        phase_end = phase_data[phase_counter, 1]
+        phase_start = phase_data[i-1, 1]
+        phase_end = phase_data[i, 1]
 
         # Check if the height_pct is within the current phase
         if phase_start <= height_pct <= phase_end:
-            # x = height_pct-phase_start
-            # xp = phase_data[:, 1]
-            # fp = phase_data[:, 0]
-            # phase_pct = np.interp(x,xp,fp) * 100.0
+            phase_counter = i
             phase_pct = (height_pct-phase_start) / (phase_end-phase_start)
-            return phase_counter, phase_pct
 
-    # Return nothing if conditions not met
-    return None, None
+    return phase_counter, phase_pct
 
 
 def modify_speed(modified_line_parts, parameter_array, phase_num, phase_pct):
@@ -415,9 +415,10 @@ def gcode_editor(gcode_file_path, parameter_file_path):
     """
 
     # Extract data from the parameter text file to a list of np arrays
-    parameters = extract_values_from_file(parameter_file_path)
-    parameter_array = parameters[0]
-    number_phases = parameters[1]   # Unused
+    parameter_array = extract_values_from_file(parameter_file_path)
+
+    # Get parameter related to heating phase
+    activate_heating = parameter_array[-1]
 
     # Find the layer height info
     layer_info = find_layer_info(gcode_file_path)
@@ -428,21 +429,17 @@ def gcode_editor(gcode_file_path, parameter_file_path):
     # Initialize output file
     output_file_path = re.sub("input/", "output/modified-", gcode_file_path)
 
-    # Initialize counters and variables
-    layer_counter = 0
-    line_counter = 0  # Unused
-    height_pct = 0
-    external_coord = False
-    data_coord = []
-
     # Read file
     with open(gcode_file_path, "r") as input_file, open(output_file_path, "w") as output_file:
 
+        # Initialize counters and variables
+        layer_counter = 0
+        height_pct = 0
+        external_coord = False
+        data_coord = []
+
         # Process each line individually
         for line in input_file:
-
-            # Update line counter
-            line_counter += 1  # Unused
 
             modified_line = line  # Unchanged line are also rewrite
 
@@ -451,7 +448,7 @@ def gcode_editor(gcode_file_path, parameter_file_path):
 
                 if line.startswith(";LAYER_CHANGE"):
                     # Heat current layer before start the next
-                    if layer_counter > 0:
+                    if layer_counter > 0 and activate_heating:
                         upper, lower = set_heating_path(np.array(data_coord))
                         edit_heating_gcode(output_file, upper, lower)
 
@@ -462,7 +459,7 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     height_pct = (layer_counter / total_layers) * 100
 
                 # Get external perimeter coordinates for future heating phase
-                elif line.startswith(";TYPE:External perimeter"):
+                elif line.startswith(";TYPE:External perimeter") and activate_heating:
                     external_coord = True
                     data_coord = []  # Comment
 
