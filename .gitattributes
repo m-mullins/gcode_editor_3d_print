@@ -1,2 +1,9 @@
+# Disable detection of G-code files for linguist
 *.* linguist-detectable=false
 *.py linguist-detectable=true
+
+# Set files to exclude for release
+.gitattributes export-ignore
+.gitignore export-ignore
+test/ export-ignore
+Rapport*

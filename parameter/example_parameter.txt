@@ -2,20 +2,20 @@
 # Ajouter des lignes au besoin en fonction du nombre de phases voulue.
 # La première phase doit être à 0 % et la dernière phase doit être 100 %.
 
-Phase 000 (%) : 0
-Phase 001 (%) : 20
-Phase 002 (%) : 50
-Phase 003 (%) : 100
+Phase 0 (%) : 0
+Phase 1 (%) : 40
+Phase 2 (%) : 70
+Phase 3 (%) : 100
 
 ------------------------------------------------------------------
 
 # 1) Modification de la température d'impression de manière variable.
 # Entrez la température en deg C à laquelle fini la phase.
 
-Phase 000 (deg C) : 180
-Phase 001 (deg C) : 190
-Phase 002 (deg C) : 210
-Phase 003 (deg C) : 230
+Phase 0 (deg C) : 190
+Phase 1 (deg C) : 200
+Phase 2 (deg C) : 210
+Phase 3 (deg C) : 220
 
 ------------------------------------------------------------------
 
@@ -23,10 +23,10 @@ Phase 003 (deg C) : 230
 # Entrez la modification de vitesse en % à laquelle fini la phase.
 # Une valeur de 100% indique que la vitesse n'est pas modifiée.
 
-Phase 000 (%) : 90
-Phase 001 (%) : 100
-Phase 002 (%) : 110
-Phase 003 (%) : 130
+Phase 0 (%) : 50
+Phase 1 (%) : 30
+Phase 2 (%) : 40
+Phase 3 (%) : 60
 
 ------------------------------------------------------------------
 
@@ -34,21 +34,19 @@ Phase 003 (%) : 130
 # Entrez la quantité en % de matériau estrudé (volume) linéaire à laquelle fini la phase.
 # Cette quantité est modifiée en fonction de la vitesse (point 2) et de la température (point 1) d'impression.
 
-Phase 000 (%) : 80
-Phase 001 (%) : 90
-Phase 002 (%) : 110
-Phase 003 (%) : 120
+Correction (%) : 5
 
 ------------------------------------------------------------------
 
 # 4) Décalage de la position de la pièce en X et Y sur le lit.
 # Entrez la longeur en mm pour l'axe X et Y afin de décaler la pièce de cette distance.
 
-Phase 000 (mm) : X=2 ; Y=3
+Shift_X (mm) : 2
+Shift_Y (mm) : 3
 
 ------------------------------------------------------------------
 
 # 5) Activer le réchauffement de la dernière couche avant d'imprimer la suivante.
 # 1 = True (Activer) et 0 = False (Désactiver)
 
-Heating 0 : 1
+Heating : 1

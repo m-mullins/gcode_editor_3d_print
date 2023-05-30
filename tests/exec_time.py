@@ -7,7 +7,7 @@ GCODE_FILENAME = "xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode"
 GCODE_INPUT_FOLDER = "input/"
 GCODE_PATH = "../" + GCODE_INPUT_FOLDER + GCODE_FILENAME
 
-PARAMETER_FILENAME = 'parametre_impression_3d.txt'
+PARAMETER_FILENAME = 'example_parameter.txt'
 PARAMETER_FOLDER = "parameter/"
 PARAMETER_PATH = "../" + PARAMETER_FOLDER + PARAMETER_FILENAME
 
