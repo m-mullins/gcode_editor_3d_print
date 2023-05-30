@@ -57,13 +57,9 @@ this file is structured and how it should be modified by the user, please refer 
 
 ## How `gcode_editor.py` works
 
-Voici une explication du fonctionnement du programme `gcode_editor.py`. Pour cela, nous allons présenter le flot de 
-contrôle de la fonction principale `gcode_editor()`. Les fonctions de modification du G-code sont détaillées à la 
-section [Tâches implémentées pour la modification du G-code :](#fonctions-de-modification-du-g-code)
-
 Here is an explanation of how the `gcode_editor.py` program works. We will present the control flow of the main 
 function `gcode_editor()`. Functions used to edit G-code are described in detail in the section: 
-[Implemented tasks for modifying G-code](#implemented-tasks-for-modifying-g-code)
+[G-code editing functions](#g-code-editing-functions)
 
 1. Reading the parameter file :
    - `extract_values_from_file()` : The parameter file is read to get all the parameters entered by the user in Numpy
@@ -98,7 +94,7 @@ function `gcode_editor()`. Functions used to edit G-code are described in detail
 
 5. Write the line in a new file.
 
-## Implemented tasks for modifying G-code
+## G-code editing functions
 
 The adjustments requested by the user in the parameter file are intended to modify the G-code instructions in order to 
 carry out the tasks described above. We will explain the approach we have adopted for modifying a line, which we believe

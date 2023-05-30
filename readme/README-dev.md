@@ -63,7 +63,7 @@ référez-vous au fichier [README](../README.md).
 
 Voici une explication du fonctionnement du programme `gcode_editor.py`. Pour cela, nous allons présenter le flot de 
 contrôle de la fonction principale `gcode_editor()`. Les fonctions de modification du G-code sont détaillées dans la 
-section [Tâches implémentées pour la modification du G-code :](#fonctions-de-modification-du-g-code)
+section [Fonctions de modification du G-code](#fonctions-de-modification-du-g-code)
 
 1. Lecture du fichier de paramètre :
    - `extract_values_from_file()` : On lit le fichier de paramètre pour récupérer l'ensemble des paramètres entrés par 
