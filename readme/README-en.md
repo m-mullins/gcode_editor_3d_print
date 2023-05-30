@@ -25,7 +25,8 @@ You can go straight to the [Usage](#usage) section if you wish.
 
 Prerequisites: Install [Python](https://www.python.org/downloads/) (Versions tested 3.9.5, 3.11.3).
 
-1. Go to the GitHub ["Releases"] page (https://github.com/m-mullins/gcode_editor_3d_print/releases).
+1. Go to the GitHub ["Releases"] page (https://github.com/m-mullins/gcode_editor_3d_print/releases) and download the
+*Source code (zip)* archive from the *Assets* tab.
 
 2. Unzip the zip archive into the folder of your choice.
 
@@ -34,15 +35,21 @@ You should then have the following gcode_editor folder :
 ````graphql
 └──gcode_editor/
   ├─ input/ - # Folder for storing G-code files to be edited
-  │  └─ xyz-10mm...
+  │  └─ 10mm_test_cube_0.4n_0.2mm_PLA_MK4_7m.gcode
+  │  └─ xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode
   ├─ output/ - # Folder for storing new G-code files after been edited
+  │  └─ modified-10mm_test_cube_0.4n_0.2mm_PLA_MK4_7m.gcode
+  │  └─ modified-xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode  
   ├─ parameter/ - # Folder for storing parameter files
-  │  └─ parametre...
-  ├─ README.md - # French README file
+  │  └─ example_parameter.txt
+  │  └─ example_parameter_bis.txt
   ├─ readme/
   │  └─ README-dev.md - # README file for developers
   │  └─ README-dev-en.md - # English README file for developers
   │  └─ README-en.md - # English README file
+  ├─ check.py
+  ├─ gcode_editor.py # Main Python file
+  ├─ README.md - # French README file
   ├─ requirements.txt
   └─ xyz-10mm-calibration-cube.stl - # 3D object used as an example
 ````
@@ -65,7 +72,7 @@ pip install -r requirements.txt
 
 ````python
 import gcode_editor as gce
-gce.gcode_editor("example_imput", "example_parameter")
+gce.gcode_editor("input/xyz-10mm-calibration-cube_0.4n_0.2mm_PLA_MK4_8m.gcode", "parameter/example_parameter.txt")
 ````
 
 ## Usage
@@ -84,32 +91,35 @@ folder. This file is divided into 6 sections.
 
 Successive layers of the 3D object are gathered in phase. These phases are then associated with parameters of
 temperature, speed and extrusion. Each phase is linked to a percentage (of the total number of layers) which indicates 
-the last layer to belong to that phase. Using the example below, if there are 100 layers, then phase 3 groups together 
-layers 21 to 50. The last phase must be associated with 100%.
+the last layer to belong to that phase. Using the example below, the layers are grouped into 3 phases. If there are 100 
+layers, then the third phase groups layers 70 to 100.
 
 Example :
 ````text
-Phase 000 (%) : 0
-Phase 001 (%) : 20
-Phase 002 (%) : 50
-Phase 003 (%) : 100
+Phase 0 (%) : 0
+Phase 1 (%) : 40
+Phase 2 (%) : 70
+Phase 3 (%) : 100
 ````
+
+Warning: The first and last phases must be set to 0% and 100% respectively.
 
 #### Temperature
 
 This section describes the evolution of the nozzle temperature during each phase. The temperature trend is linear
 in each phase. We start with the temperature input for the previous phase and stop at the temperature input for 
-the current phase. Temperatures should be in degrees Celsius. This G-code editor does not impose any restrictions on 
-temperatures. We leave it to the user to choose a setting that is consistent with limitations of their printing 
-equipment.
+the current phase. Temperatures should be in degrees Celsius.
 
 Example :
 ````text
-Phase 000 (°C) : 180 
-Phase 001 (°C) : 190 
-Phase 002 (°C) : 210 
-Phase 003 (°C) : 230
+Phase 0 (deg C) : 190
+Phase 1 (deg C) : 200
+Phase 2 (deg C) : 210
+Phase 3 (deg C) : 220
 ````
+
+Warning : This G-code editor imposes few restrictions on temperatures. We leave it to the user to choose a setting that 
+is consistent with limitations of their printing equipment.
 
 #### Printing speed
 
@@ -118,25 +128,31 @@ speed trend is linear for each phase. The change in speed should be described as
 
 Example :
 ````text
-Phase 000 (%) : 90 
-Phase 001 (%) : 100 
-Phase 002 (%) : 110
-Phase 003 (%) : 130
+Phase 0 (%) : 50
+Phase 1 (%) : 30
+Phase 2 (%) : 40
+Phase 3 (%) : 60
 ````
 
+Warning: Like the temperature, this G-code editor imposes few restrictions. We simply check that the percentages are 
+positive. We leave it to the user to choose a setting that is consistent with the limitations of their printing 
+equipment.
 
 #### Extrusion
 
-This section describes whether over-extrusion or under-extrusion is required during each phase. In other words, the 
-quantity of raw material leaving the nozzle is modified. The intensity of this variation should be indicated as a 
-percentage. This adjustment can be used to alleviate the problem of swelling at the nozzle. This phenomenon is 
-affected by the temperature and the printing speed, so it's important to take these two other factors into account 
-when setting the extrusion parameters.
+This section specifies the absolute limit of the correction factors applied to the extrusion of the part (under or 
+over extrusion). In other words, the quantity of raw material leaving the nozzle will be modified. This parameter 
+indicates that the correction factors applied to each phase will be in the range 
+[100-Correction (%); 100+Correction (%)]. These factors are calculated by the program and should be used to alleviate 
+the problem of swelling at the nozzle. This phenomenon is affected by the temperature and the printing speed. This 
+parameter must be indicated as a percentage.
 
 Example :
 ````text
-En attente
+Correction (%) : 5
 ````
+
+Warning: Deleting this line or adding uncommented lines in this section will be treated as an error.
 
 #### Shift position
 
@@ -146,8 +162,11 @@ a phase, but with the whole workpiece.  All G-code instructions will be adjusted
 
 Example :
 ````text
-En attente
+Shift_X (mm) : 2
+Shift_Y (mm) : 3
 ````
+
+Warning: Deleting these lines or adding uncommented lines in this section will be treated as an error.
 
 #### Warming up
 
@@ -158,4 +177,15 @@ deactivated, any other integer value will activate it.
 Example :
 ````text
 Heating : 1
+````
+
+Warning: Deleting this line or adding uncommented lines in this section will be treated as an error.
+
+The Python file *check.py* contains functions for checking your parameters. These are called at the start of the
+*gcode_editor* program. However, you can also check your parameters without running the main program, as follows:
+
+````python
+import gcode_editor as gce
+import check
+check.check_parameter(gce.extract_values_from_file("parameter/example_parameter_bis.txt"))
 ````
