@@ -61,11 +61,11 @@ Example :
 cd Desktop/*/*/gcode_editor
 ````
 
-4. Run Python, then install the modules required for the program.
+4. Install the modules required for the program, then run Python.
 
 ````commandline
-python
 pip install -r requirements.txt
+python
 ````
 
 5. Test that the program works correctly using the example files.
