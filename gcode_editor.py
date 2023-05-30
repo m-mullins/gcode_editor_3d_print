@@ -157,7 +157,7 @@ def find_phase(height_pct, parameter_array):
 
 
 def evaluate_extrude_ratio(parameter_array):
-    """
+    """Compute correction extrusion ration for each phase.
 
     Parameters
     ----------
@@ -183,7 +183,7 @@ def evaluate_extrude_ratio(parameter_array):
     # Find the worst expansion (absolute value)
     worst_abs_expansion = np.max(np.abs(theory_expansion))
 
-    # Compute new correction ration for extrusion
+    # Compute new correction ratio for extrusion
     extrude_ratio_array = user_extrude_correction*(theory_expansion/worst_abs_expansion)
 
     return extrude_ratio_array
@@ -195,9 +195,9 @@ def modify_speed(modified_line_parts, parameter_array, phase_num, phase_pct):
     Parameters
     ----------
     modified_line_parts : A split G code string.
-    parameter_array : user parameters in the form of a list of numpy arrays
+    parameter_array : User parameters in the form of a list of numpy arrays
     phase_num : The number of the current phase
-    phase_pct : the current height vs total part height in percent
+    phase_pct : The current height vs total part height in percent
 
     Returns
     -------
@@ -235,13 +235,12 @@ def modify_temperature(modified_line_parts, parameter_array, phase_num, phase_pc
     Parameters
     ----------
     modified_line_parts : A split G code string.
-    parameter_array : user parameters in the form of a list of numpy arrays
+    parameter_array : User parameters in the form of a list of numpy arrays
     phase_num : The number of the current phase
-    phase_pct : the current height vs total part height in percent
+    phase_pct : The current height vs total part height in percent
 
     Returns
     -------
-    new_line : A new string which represents the modified G code line
 
     """
 
@@ -495,8 +494,8 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                         height_pct = (layer_counter / total_layers) * 100
 
                     elif line.startswith(";BEFORE_LAYER_CHANGE"):
-                        # Add a G-code instruction to set temperature. These instructions are not always existent for each
-                        # layer
+                        # Add a G-code instruction to set temperature. These instructions are not always existent for
+                        # each layer
                         add_temperature_setup(output_file, parameter_array, phase_num, phase_pct)
 
                     # Detect external perimeter and enable to get coordinates for future heating phase
@@ -517,7 +516,7 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     # Validate if the gcode line operation is a G1
                     if line.startswith("G1"):
 
-                        # ********************************* Apply line modifications here *********************************
+                        # ******************************* Apply line modifications here *******************************
 
                         # Convert line to a list
                         modified_line_parts = line.split()
@@ -545,7 +544,7 @@ def gcode_editor(gcode_file_path, parameter_file_path):
                     # If there is already a line to set temperature we modify its value
                     if line.startswith(("M104", "M109")):
 
-                        # ********************************* Apply line modifications here *********************************
+                        # ******************************* Apply line modifications here *******************************
 
                         # Convert line to a list
                         modified_line_parts = line.split()
